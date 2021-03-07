@@ -1,0 +1,544 @@
+---
+title: "Mühendisler için İstatistik"
+author: "Dr. Busenur Kızılaslan"
+date: "2021/03/01 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/sfah.css", "css/fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    seal: false 
+    includes:
+      in_header: header.html
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+# options(knitr.table.format = "html")
+library(tidyverse)
+library(babynames)
+library(fontawesome) # from github: https://github.com/rstudio/fontawesome
+library(DiagrammeR)
+```
+
+layout: true
+  
+<div class="my-footer"><span>Marmara University/Computer Engineering</span></div>
+
+<!-- this adds the link footer to all slides, depends on my-footer class in css-->
+
+---
+name: xaringan-title
+class: center
+background-image: url("img/franki-chamaki-1K6IQsQbizI-unsplash.jpg")
+background-size: cover
+
+
+
+# Mühendisler için İstatistik
+
+## Dr. Busenur Kızılaslan | 2021
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+---
+
+class: right, middle
+
+<img class="circle" src="img/busenur.sarica.png" width="200px"/>
+
+
+# bana ulaşmak için...
+
+  
+[`r fa(name = "github")` @busenurk](https://github.com/busenurk)  
+[`r fa(name = "link")` googlescholar/busenurkizilaslan](https://scholar.google.com.tr/citations?user=OKlYJEgAAAAJ&hl=tr&oi=ao)  
+[`r fa(name = "link")` avesis/busenurkizilaslan](https://avesis.marmara.edu.tr/busenur.sarica)    
+[`r fa(name = "paper-plane")` busenur.sarica@marmara.edu.tr](mailto:busenur.sarica@marmara.edu.tr)
+
+---
+class: right
+background-image: url("img/matthew-henry-2Ts5HnA67k8-unsplash.jpg")
+background-size: cover
+
+# Ders Planı
+
+--
+
+## Her perşembe
+
+--
+
+## Ders | 09:00 - 09:50 
+
+--
+
+## Kahve molası | 09:50 - 10:00 
+
+--
+
+## Ders | 10:00 - 10:50 
+
+---
+
+class: left,middle
+# Kaynaklar
+----------------
+
+### 📙 Olasılık ve İstatistiğe Giriş (Mühendisler ve Fenciler için) | Sheldon M. Ross
+
+### 📕 Mühendisler için Uygulamalı İstatistik ve Olasılık | Douglas C. Montgomery, George C. Runger 
+
+---
+
+# Ders İçeriği  🚀
+
+ İstatistiğe Giriş ve Mühendislikteki Önemi
+
+--
+
+ Betimleyici İstatistik <br>
+
+--
+
+ Olasılığın Temelleri <br>
+
+--
+
+ Rastgele Değişkenler <br>
+
+--
+
+ Kesikli ve Sürekli Dağılımlar <br>
+
+--
+
+ Örnekleme İstatistiklerinin Dağılımları <br>
+
+--
+
+ Parametre Tahmini <br>
+
+--
+
+ Hipotez Testi <br>
+
+--
+
+ `Bonus! Regresyona Giriş`
+
+---
+class: left, middle, inverse
+background-image: url("img/davisuko-5E5N49RWtbA-unsplash.jpg")
+background-size: cover
+
+# İSTATİSTİK NEDİR ?
+
+---
+class: middle, center
+
+# İstatistik veriden öğrenme sanatıdır. 
+
+## Sheldon M. Ross
+
+---
+class: middle, right
+background-image: url("img/kelli-tungay-2LJ4rqK2qfU-unsplash.jpg")
+background-size: cover
+
+
+### .salt[toplanması] 
+
+--
+
+### .acid[düzenlenmesi] 
+
+--
+
+### .heat[analizi]
+
+--
+
+### .salt[yorumlanması] 
+
+--
+
+### .fat[sunulması]
+
+---
+class: middle, left, inverse
+background-image: url("img/nick-fewings-C2zhShTnl5I-unsplash.jpg")
+background-size: cover
+
+#Ne işime yarayacak?
+
+---
+class: middle, right
+background-image: url("img/gavin-allanwood-rObq1WBp_Ew-unsplash.jpg")
+background-size: cover
+
+
+---
+class: middle, right
+background-image: url("img/freestocks-11SgH7U6TmI-unsplash.jpg")
+background-size: cover
+
+---
+class: middle, right
+background-image: url("img/bao-menglong-yXkKfvGaipw-unsplash.jpg")
+background-size: cover
+
+---
+class: middle, right
+background-image: url("img/thisisengineering-raeng-qI7USKbZY_A-unsplash.jpg")
+background-size: cover
+
+---
+class: middle, right
+background-image: url("img/possessed-photography-g29arbbvPjo-unsplash.jpg")
+background-size: cover
+
+---
+class: left
+
+# Neden Önemli?
+
+<br>
+
+ 📎 [Değişkenlik](#block1) ve çeşitlilik söz konusu olmasaydı istatistiksel yöntemlere gerek kalmazdı.
+
+<br>
+
+--
+
+ 📎 Değişkenliği tanımlamak, analiz etmek ve sınıflandırmak istatistiğin temel konularıdır.
+
+<br>
+
+--
+
+`Toplam Değişkenlik = Açıklanabilen Değişkenlik + Tesadüfi Değişkenlik`
+
+<br>
+
+--
+
+📎 İstatistik, [rassallık (randomness)](#block1) içeren değişkenlikle ilgilenir.
+
+<br>
+
+--
+
+📎 İstatistik, değişkenliğin varlığında karar vermekte ve sonuç çıkarmakta yardımcı olan bilim dalıdır.
+
+---
+class: center
+
+### .heat[İstatistik]
+
+.pull-left[
+# ↙️
+## Betimsel İstatistik
+Verilerin toplanması, özetlenmesi, tablolar ve grafiklerle sunulması, dağılım ve yayılım ölçütleri ile konum ve dağılımlarının belirlenmesi
+]
+
+
+.pull-left[
+# ↘️
+## Çıkarımsal İstatistik
+Anakütleden rastgele seçilen örneklem verilerini kullanarak anakütle parametrelerinin tahmin edilmesi ve hipotezlerin araştırılması 
+]
+
+
+---
+
+# Temel Kavramlar
+
+.saltinline[Kitle (popülasyon anakütle, anakitle, yığın, evren, **population**):] İstatistikte ilgilenilen özelliğe sahip bütün birimlerin oluşturduğu topluluk.
+
+🐱 Türkiye kedileri 
+
+--
+
+.saltinline[Örneklem (örnek, **sample**):] Kitleden rastgele seçilen daha az sayıda birimden oluşan topluluk. Kitlenin alt kümesidir.
+
+🐱 İstanbul kedileri
+
+--
+
+.saltinline[Parametre:]  Anakütlenin tanımlayıcı sayısal ölçüsüdür. Yani, tüm anakütleyi oluşturan birimlerden hesaplanan sayısal ölçülerdir.
+
+--
+
+.saltinline[İstatistik:] Örneklemin tanımlayıcı sayısal ölçüsüdür. Yani, örneklemi oluşturan birimlerden hesaplanan sayısal ölçüdür.
+
+--
+
+.saltinline[Değişken (**variable**):] İlgilenilen kitlenin bir karakteristiği veya özelliğidir. Birimlerin farklı değerler alabildikleri nitelik veya niceliklerdir.
+
+🐱 Kedilerin kilosu, boyu, cinsiyeti, rengi
+
+---
+
+class: middle, center
+background-image: url("img/joe-woods-4Zaq5xY5M_c-unsplash.jpg")
+background-size: cover
+
+.pull-left[
+
+#Anakütle
+
+#🔃
+
+#Parametre
+
+]
+
+.pull-right[
+
+#Örneklem
+
+#🔃
+
+#İstatistik
+
+]
+
+---
+
+# Veri Türleri
+
+<br>
+
+### Veriler [ölçüm türüne](#block) göre .heatinline[sayısal] ve .heatinline[kategorik] olmak üzere iki grupta toplanır.
+
+<br>
+
+--
+
+### Veriler [derlenme şekillerine](#block) göre de .fatinline[zaman serisi] ve .fatinline[yatay kesit] verisi olmak üzere sınıflandırılmaktadır. 
+
+---
+
+.pull-left[
+
+###Sayısal (nicel) veriler
+
+Gelir, Fiyat, Yaş
+
+Üretim, maliyeti
+
+]
+
+--
+
+.pull-right[
+
+<br>
+
+```{r echo=FALSE}
+library(tidyverse)
+diamonds[(1:5),-(2:4)]
+
+```
+
+]
+
+--
+
+<br>
+
+.pull-left[
+
+###Kategorik (nitel) veriler
+
+Cinsiyet, Gelir grupları (düşük, orta)
+
+Eğitim düzeyleri (ilk, orta, üni)
+
+Meslek (memur, işçi)
+
+]
+
+--
+
+.pull-right[
+
+<br>
+
+```{r echo=FALSE}
+library(tidyverse)
+diamonds[(1:5),(2:4)]
+
+```
+
+]
+
+
+---
+
+.pull-left[
+
+##Zaman Serileri
+
+Belirli zaman aralığındaki; döviz kurları,
+
+faiz oranları, enflasyon oranı
+
+]
+
+.pull-right[
+
+```{r}
+AirPassengers
+```
+
+
+]
+
+--
+
+##Yatay Kesit Verileri
+
+Sabit bir zamanda gözlenerek elde edilmiş verilerdir. Anket yoluyla derlenen veriler örnek olarak verilebilir. 
+
+2007 yılının Ocak ayında Türkiye’de illere göre otomobil sayısı, Akdeniz Ülkelerinin her birine 2009 yılının 3. çeyreğinde (temmuz-eylül) gelen toplam turist sayısı
+
+<br>
+
+🍎 Bknz.Panel veri
+
+---
+
+#Veri Ölçüm Düzeyleri (Ölçekler)
+
+.heatinline[Sınıflama Ölçeği (Nominal Ölçek):] Gözlem sonuçları benzerliklerine veya farklılıklarına göre sınıflandırılıyorsa bu ölçek sınıflama ölçeği olarak adlandırılır. 
+
+Cinsiyet, meslek, tutulan takım örnek olarak verilebilir. 
+
+⚽ Galatasaray = 1
+
+⚽ Beşiktaş = 2 
+
+⚽ Fenerbahçe = 3
+
+**Burada atanan değerler üstünlük durumunu temsil etmez.**
+
+<br>
+
+--
+
+Nominal ölçekle elde edilen verilerle; 
+
+  - aritmetik ortalama hesaplanamaz, anlamı yoktur.
+  
+  - frekans (sıklık), oransal frekans (görseli sıklık), mod gibi  değerler hesaplanabilir.
+
+---
+
+#Veri Ölçüm Düzeyleri (Ölçekler)
+
+.heatinline[Sıralama Ölçeği (Ordinal Ölçek):] Gözlem sonuçları bir sınıflamaya tabi tutulmakla beraber belli bir özelliğe sahip olma bakımından sıralanabiliyorsa bu sıralama ölçeğidir.
+
+Eğitim durumu; İlköğretim, Lise, Lisans, Y. Lisans gibi
+
+Sağlık durumu; kötü, orta, iyi gibi
+
+Yarışma sonucu dereceler; birinci, ikinci, üçüncü
+
+**Verilen değerler sıralama amaçlı olup matematiksel anlam taşımamaktadır.**
+
+<br>
+
+Sıralama ölçeğiyle elde edilen verilerle; 
+
+  - aritmetik ortalama hesaplanamaz, anlamı yoktur.
+  
+  - birikimli frekans , birikimli oransal frekans, medyan gibi  değerler hesaplanabilir.
+  
+---
+
+#Veri Ölçüm Düzeyleri (Ölçekler)
+
+.heatinline[Eşit Aralıklı Ölçek:] Nominal ve sıralı ölçek türlerine göre daha hassas bir ölçme sağlar ve sayıların sırasının ve sayılar arası uzaklığın bir anlamı vardır.
+
+Sıfır noktası isteğe bağlı olarak tanımlandığından sıfır değeri ölçülen özelliğin bulunmadığı anlamını taşımaz.
+
+<br>
+
+| Şehir | Sıralama Ölçeği | Eşit Aralıklı Ölçek |
+|:----:|:----:|:----:|
+|Antalya|1 (10)|24 C|
+|Ankara|2 (20)|19 C|
+|Kars|3 (30)|11 C|
+
+<br>
+
+**Sıralama ölçeğinde** yer alan 1, 2, 3 sayısal değer ifade etmediğinden 10, 20, 30 olarak da seçilebilir. 
+
+**Eşit aralıklı ölçekte** ise ölçüm değerleri arasındaki farklar önemlidir, bu bakımdan Antalya-Ankara arası sıcaklık farkının (24-19=5), Ankara-Kars arası sıcaklık farkından (19-11=8) az olduğu söyleyenebilir.
+
+---
+
+#Veri Ölçüm Düzeyleri (Ölçekler)
+
+.heatinline[Oran Ölçeği:] Bahsi geçen diğer ölçeklerin bütün özelliklerini taşımakla birlikte hepsinden üstündür. Değerler arası farkı belirleyebilir ve bu değerlerin birbirine göre oranının bulunmasına imkan tanır.
+
+--
+
+Oran ölçeğinin aralık ölçeğinden farkı sıfır noktasının isteğe bağlı olmadan tanımlanmasıdır. 
+
+--
+
+Yaş, ağırlık, ücret ve not gibi anlamlı bir sıfır değerine de sahip olan ölçme düzeyidir.
+
+--
+
+<br>
+
+.saltinline[Sınıflama ve sıralama ölçeklerinde ölçülen değişkenler nitel (kategorik, sayısal olmayan) değişkenlerdir.]
+
+
+--
+
+<br>
+
+.saltinline[Eşit aralık ve oran ölçekleride ölçülen değişkenler nitel (sayısal) değişkenlerdir.]
+
+
+---
+
+class: right, inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+
+#Yapay öğrenmenin (machine learning) altında yatan ana teori istatistiğe dayanır.
+
+Ethem Alpaydın, "Yapay Öğrenme, Yeni Yapay Zeka", (2020), 35.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
