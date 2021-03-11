@@ -83,6 +83,8 @@ class: left,middle
 
 ### 📕 Mühendisler için Uygulamalı İstatistik ve Olasılık | Douglas C. Montgomery, George C. Runger 
 
+### 📘 Olasılık ve İstatistik | Semra Oral Erbaş
+
 ---
 
 # Ders İçeriği  🚀
@@ -544,7 +546,640 @@ Yaş, ağırlık, ücret ve not gibi anlamlı bir sıfır değerine de sahip ola
 
 &lt;br&gt;
 
-.saltinline[Eşit aralık ve oran ölçekleride ölçülen değişkenler nitel (sayısal) değişkenlerdir.]
+.saltinline[Eşit aralık ve oran ölçekleride ölçülen değişkenler nicel (sayısal) değişkenlerdir.]
+
+
+---
+
+#Verilerin Düzenlenmesi
+
+Kitle veya örneklemden belirli değişkenler için çeşitli ölçeklere göre alınan ölçüm (gözlem) sonuçlarının oluşturduğu kümeye `veri` denir.
+
+Verinin özetlenmesi için yapılan işlemlerden biri frekans (sıklık) dağılımlarını oluşturmaktır.
+
+
+```r
+mtcars %&gt;% head(5)
+```
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+```
+
+
+
+```r
+library(plyr)
+d1&lt;- mtcars %&gt;% count("gear");d1 
+```
+
+```
+##   gear freq
+## 1    3   15
+## 2    4   12
+## 3    5    5
+```
+
+---
+
+Frekans dağılımları birçok grafik tipinde kullanılır.
+
+.pull-left[
+
+.saltinline[Bar Grafik]
+
+
+```r
+bar&lt;-ggplot(data=d1, aes(x=gear, y=freq, fill=gear)) +
+    geom_bar(stat="identity");bar
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+.saltinline[Pasta Grafik]
+
+
+```r
+bar + coord_polar("y", start=0)
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+.saltinline[Histogram]
+
+Koordinat eksenleri üzerinde her sınıf için çizilen dikdörtgenlerden oluşan grafiktir. Bu dikdörtgenlerin taban kenar uzunlukları sınıf aralığına eşittir. Diğer kenar uzunluğu da sınıfların frekansına eşittir.
+
+
+```r
+library(dslabs)
+attach(gapminder)
+gapminder %&gt;% head(5)
+```
+
+```
+##               country year infant_mortality life_expectancy fertility
+## 1             Albania 1960           115.40           62.87      6.19
+## 2             Algeria 1960           148.20           47.50      7.65
+## 3              Angola 1960           208.00           35.98      7.32
+## 4 Antigua and Barbuda 1960               NA           62.97      4.43
+## 5           Argentina 1960            59.87           65.39      3.11
+##   population          gdp continent          region
+## 1    1636054           NA    Europe Southern Europe
+## 2   11124892  13828152297    Africa Northern Africa
+## 3    5270844           NA    Africa   Middle Africa
+## 4      54681           NA  Americas       Caribbean
+## 5   20619075 108322326649  Americas   South America
+```
+
+```r
+dim(gapminder)
+```
+
+```
+## [1] 10545     9
+```
+---
+
+.saltinline[Histogram]
+
+
+```r
+library(hrbrthemes)
+ggplot(gapminder, aes(x=fertility)) +
+    geom_histogram( binwidth=3, fill="#69b3a2", color="#e9ecef", alpha=0.9) +
+    theme_ipsum() +
+    theme(
+      plot.title = element_text(size=15)
+    )
+```
+
+![](xaringan_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+---
+
+.saltinline[🌿 Dal Yaprak Grafiği]
+
+.pull-left[
+
+
+```r
+a&lt;-1:50;a
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+```
+
+]
+
+.pull-right[
+
+
+```r
+a %&gt;% stem()
+```
+
+```
+## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   0 | 1234
+##   0 | 56789
+##   1 | 01234
+##   1 | 56789
+##   2 | 01234
+##   2 | 56789
+##   3 | 01234
+##   3 | 56789
+##   4 | 01234
+##   4 | 56789
+##   5 | 0
+```
+]
+
+---
+
+#Verilerin Özetlenmesi
+
+Verilerin özetlenmesi amacıyla merkezi eğilim ve dağılım ölçülerinden faydalanılır.
+
+&lt;br&gt;
+
+.satlinline[Merkezi eğilim ölçüleri;] verideki gözlem değerlerinin etrafında toplandığı değerler merkezi eğilim ölçüleri olarak adlandırılır.
+
+🔻 Aritmetik ortalama, medyan (ortanca), mod (tepe değer), geometrik ortalama, harmonik ortalama
+
+
+&lt;br&gt;
+
+--
+
+.satlinline[Merkezi dağılım ölçüleri;] verideki gözlem değerlerinin birbirlerine göre konumlarını, birbirlerine olan yakınlık ve uzaklıklarını yansıtan değerler ise merkezi dağılım ölçüleri olarak adlandırılır.
+
+🔻 Değişim genişliği (range), varyans, standart sapma, değişim katsayısı
+
+--
+
+&lt;br&gt;
+
+Bu bölüm altında dağılımın şeklini gösteren **çarpıklık (skewness)** ve **basıklık (kurtosis)** katsayıları da incelenecektir.
+
+---
+
+#Verilerin Özetlenmesi
+
+&lt;br&gt;
+
+En çok kullanılan eğilim ölçülerini vermeden önce iki önemli kavramı hatırlamakta fayda olacaktır.
+
+&lt;br&gt;
+
+.heatinline[Gruplanmamış veri;] `\(x_{1}, x_{2}, x_{3},..., x_{n}\)` gözlemler seti
+
+&lt;br&gt;
+
+--
+
+.heatinline[Gruplanmış veri;] `\(x_{1}, x_{2}, x_{3},..., x_{k}\)` gözlemler seti olup her bir sınıfa `\(f_{1}, f_{2},..., f_{k}\)`  frekansları karşılık gelir. Gözlemlerin toplam sayısı frekansların toplamına eşittir.
+
+
+
+---
+
+####.salt[Aritmetik Ortalama]
+
+&lt;br&gt;
+
+🔹 Gözlem değerlerinin toplamının gözlem sayısına bölümü olarak tanımlanır.
+
+--
+
+🔹 Gözlem değerlerinin etrafında toplandığı merkezi ifade eder.
+
+--
+
+🔹 En çok kullanılan merkezi eğilim ölçüsüdür.
+
+--
+
+🔹 Popülasyon (kitle) için aritmetik ortalama `\(\mu\)` ile gösterilir.
+
+--
+ 
+🔹 Örneklem için aritmetik ortalama `\(\bar{x}\)` ile gösterilir.
+
+--
+
+🔹 Yalnızca nicel veri için mevcuttur.
+
+--
+
+🔹 **Birim değerlerinde meydana gelen değişme çok küçük bile olsa aritmetik ortalama etkilenir.**
+
+---
+
+.heatinline[Gruplanmamış veriler için aritmetik ortalama;]
+
+&lt;br&gt;
+
+`\(\mu=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+x_{3}...+x_{N}}{N}\)`
+
+&lt;br&gt;
+
+--
+
+&gt;Yığın gözlem sayısı için N, örneklem gözlem sayısı için n kullanılır.
+
+&lt;br&gt;
+
+--
+
+Ancak yığın değerlerine ulaşmak her zaman mümkün olmadığından çoğu kez yığından rastgele olarak alınmış örneğin aritmetik ortalamasına ihtiyaç duyulur.
+
+&lt;br&gt;
+
+--
+
+`\(\bar{x}=\frac{\sum_{i=1}^{n} x_{i}}{n}=\frac{x_{1}+x_{2}+x_{3}...+x_{n}}{n}\)`
+
+&lt;br&gt;
+
+---
+
+.heatinline[Gruplanmış veriler için aritmetik ortalama;]
+
+Yığın için;
+
+--
+
+`\(\mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{N}\)`
+
+&lt;br&gt;
+
+--
+
+Örnek için;
+
+`\(\bar{x}=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{n}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{n}\)`
+
+
+🔆 Bir kreşteki çocukların yaşlarına göre dağılımı aşağıdaki gibi verilmiştir. Aritmetik ortalamayı bulunuz.
+
+.pull-left[
+
+|xj (yaş)|fj|
+|:-----------:|:-----:|
+|1|6|
+|2|12|
+|3|14|
+|4|9|
+|5|6|
+| |N=47|
+
+]
+
+.pull-right[
+
+`\(\mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{1(6)+2(12)+4(9)+5(6)}{47}=2.94\)`
+
+
+
+]
+
+---
+
+class: center,inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+#Birim değerlerinde meydana gelen değişme çok küçük bile olsa aritmetik ortalama etkilenir.
+
+---
+
+####.salt[Aritmetik Ortalama]
+
+
+```r
+comp&lt;-1:50
+comp
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+```
+
+--
+
+
+```r
+mean(comp)
+```
+
+```
+## [1] 25.5
+```
+
+&lt;br&gt;
+
+--
+
+
+```r
+comp1&lt;-c(comp,510)
+comp1
+```
+
+```
+##  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+## [20]  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38
+## [39]  39  40  41  42  43  44  45  46  47  48  49  50 510
+```
+
+
+--
+
+
+```r
+mean(comp1)
+```
+
+```
+## [1] 35
+```
+
+---
+
+####.salt[Medyan (Ortanca)]
+
+&lt;br&gt;
+
+🔹 Bir verideki gözlem değerleri .heatinline[küçükten büyüğe doğru sıralandığında] ortadaki değere medyan denir.
+
+&lt;br&gt;
+
+--
+
+🔹 Medyan veriyi ortadan ikiye böler.
+
+&lt;br&gt;
+
+--
+
+🔹 Nicel ve ordinal değişkenler için kullanılabilir.
+
+&lt;br&gt;
+
+--
+
+&lt;br&gt;
+
+**Aykırı değerlerden etkilenmez. Veride aykırı değer olması durumunda ortalamanın yerine tercih edilir.**
+
+---
+
+.saltinline[Gruplanmamış veriler için medyan;]
+
+&lt;br&gt;
+
+
+Toplam gözlem sayısının çift veya tek olmasına göre aşağıdaki gibi bulunur.
+
+&lt;br&gt;
+
+`\({x_{(\frac{N+1}{2})}}\)`  , N tek ise
+
+&lt;br&gt;
+
+--
+
+`\(\frac{x_{(\frac{N}{2})}+x_{(\frac{N}{2}+1)}}{2}\)`  , N çift ise
+
+&lt;br&gt;
+
+--
+
+🔆 3, 4, 5, 8, 8, 9, 10 şeklinde sıraya dizilen 7 birimin medyanı (ortancası),
+
+`\(x_{medyan}=x_{\frac{N+1}{2}}=x_{\frac{7+1}{2}}=x_{(4)}=8\)`
+
+
+---
+
+🔆 Bir markette 10 kasada belli bir zaman aralığında sıraya giren müşteri sayısı aşağıdaki gibi verilmiştir. Medyanı bulunuz.
+
+`\(x_{i}\)`=32, 58, 27, 44, 36, 28, 42, 51, 39, 50
+
+
+```r
+x&lt;-c(32, 58, 27, 44, 36, 28, 42, 51, 39, 50)    # sıralı değil, sıralanmalı
+xs&lt;-sort(x,decreasing = F);xs
+```
+
+```
+##  [1] 27 28 32 36 39 42 44 50 51 58
+```
+
+```r
+N=length(x);N
+```
+
+```
+## [1] 10
+```
+
+```r
+m1=xs[N/2];m1
+```
+
+```
+## [1] 39
+```
+
+```r
+m2=xs[(N/2+1)];m2
+```
+
+```
+## [1] 42
+```
+
+```r
+(m1+m2)/2
+```
+
+```
+## [1] 40.5
+```
+
+.saltinline[Çift gözlem sayısında, ortanca değerin iki gözlemin arasına düşmesi sebebiyle bu gibi bir ortalama hesabı yapılıyor.]
+
+
+---
+
+class: center,inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+#Medyan aşırı uç değerlerden etkilenmez. Bu yönden aritmetik ortalamadan üstündür. Ancak aritmetik ortalamanın daha hassas olduğu unutulmamalıdır.
+
+---
+
+####.salt[Mod (Tepe Değer)]
+
+📌 Bir veride en çok tekrarlanan değere mod denir.
+
+--
+
+📌 Nitel ve nicel veriler için uygundur.
+
+--
+
+📌 Gözlemlerin tümü işleme katılmadığından uç değerlerden etkilenmez.
+
+--
+
+📌 Her gözlem bir kez ortaya çıkmış ise mod mevcut değildir.
+
+--
+
+📌 Bir veride birden fazla mod değeri olabilir, bu durumda kullanılması uygun değildir.
+
+--
+
+&lt;br&gt;
+
+.saltinline[Gruplanmamış veriler için mod;] Veride en çok tekrar eden gözlemdir.
+
+&lt;br&gt;
+
+🔆 12, 14, 14, 15, 15, 16, 17, **18**, **18**, **18**, 19, 20 için mod değeri 18 dir.
+
+---
+
+class: center,inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+##Mod, hassaslığı en az olan ölçüdür. Çünkü mod yer ve birimlerin değer değiştirmesinden etkilenmez. En yüksek frekans aynı sınıfta kaldıkça diğer sınıflarda ve değerlerde meydana gelecek değişiklikler modu değiştirmez.
+
+---
+
+####.salt[Geometrik Ortalama]
+
+📌 Gözlem sonuçlarının herbiri bir önceki gözlem sonucuna bağlı olarak değişiyorsa ve bu değişmenin hızını saptamak gerekiyorsa geometrik ortalamayı kullanmak gerekir.
+
+--
+
+📌 Aykırı değerlerden aritmetik ortalama kadar etkilenmez.
+
+--
+
+`\(G=\sqrt[n]{\prod_{i=1}^{n}x_{i}}\)`
+
+--
+
+&lt;br&gt;
+
+🔆 Bir şehirdeki son dört yıllık nüfus değerleri (bin olarak) 100, 180, 210, 300 dür. Bu şehrin son dört yıllık ortalama nüfus artışı yüzde kaçtır?
+
+.pull-left[
+
+Yıllık artış oranları;
+
+180/100=1.8
+
+210/180=1.16
+
+300/210=1.42
+]
+
+.pull-right[
+
+`\(G=\sqrt[3]{(1.8)(1.16)(1.42)}=1.437\)`
+
+
+
+Böylece son dört yıllık ortalama nüfus artışı %43.27 dir.]
+
+---
+
+####.salt[Harmonik Ortalama]
+
+📌 Bir dizideki verilerin birbirleri ile ilişkisi düzensiz ise aralarında belirli bir uyum yok ise kullanılır. Özellikle zaman dizilerinde verilerin ani ve beklenmeyen olaylardan etkilendiği durumlarda harmonik ortalama en uygun ortalamadır.
+
+--
+
+📌 Birim fiyat ile alınan ortalama miktarı veya bir ürünün bir biriminin üretimi için harcanan ortalama zaman gibi ortalamaları hesaplamak için kullanılır.
+
+--
+
+📌 Birim değerlerinden en az birinin sıfır olduğu durumda hesaplanamaz.
+
+--
+
+📌 Küçük değerlerden çok, yüksek değerlerden az etkilenir.
+
+&lt;br&gt;
+
+`\(H=\frac{1}{\frac{1}{n}\sum_{i=1}^{n}\frac{1}{x_{i}}}\)`
+
+&lt;br&gt;
+
+--
+
+🔆 Bir tekstil fabrikasında çalışan dört kişinin bir pantolonu ütüleme süreleri 10dk, 6dk, 4dk ve 5dk dır. Buna göre bu fabrikada bir pantolon ortalama kaç dakikada ütülenir?
+
+`\(H=\frac{1}{\frac{1}{4}(\frac{1}{10}+\frac{1}{6}+\frac{1}{4}+\frac{1}{5})}=5.58\)` dk
+
+---
+class: center, middle
+background-image: url("img/hello-i-m-nik-MAgPyHRO0AA-unsplash.jpg")
+background-size: cover
+
+
+.pull-left[
+
+####.heat[&lt;u&gt;Merkezi Eğilim Ölçüleri&lt;/u&gt;]
+
+####.heat[Aritmetik Ortalama]
+
+####.heat[Medyan]
+
+####.heat[Mod]
+
+####.heat[Geometrik Ortalama]
+
+####.heat[Harmonik Ortalama]
+
+]
+
+.pull-right[
+
+####.fat[&lt;u&gt;Merkezi Dağılım Ölçüleri&lt;/u&gt;]
+
+####.fat[Varyans]
+
+####.fat[Standart Sapma]
+
+####.fat[Değişim Katsayısı]
+
+####.fat[Değişim Genişliği]
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
