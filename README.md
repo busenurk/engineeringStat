@@ -12,4 +12,5 @@ IST3045 - Statistics for Engineers course includes the spring semester (2021) le
 Have fun!
 
 
-![](https://www.youtube.com/watch?v=ogeGJS0GEF4)
+
+
