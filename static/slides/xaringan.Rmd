@@ -1038,3 +1038,499 @@ background-size: cover
 ####.fat[Değişim Genişliği]
 
 ]
+
+---
+
+####.salt[Varyans ve Standart Sapma]
+
+<br>
+
+🔻 Varyans, gözlem değerlerinin aritmetik ortalamadan sapmalarının karelerinin ortalaması olarak tanımlanır.
+
+<br>
+
+--
+
+🔻 Varyansın pozitif kareköküne .heatinline[Standart Sapma] denir.
+
+<br>
+
+--
+
+🔻 En sık kullanılan dağılım ölçüleridir.
+
+<br>
+
+--
+
+🔻 Popülasyon için varyans, $\sigma^{2}$ ve standart sapma, $\sigma$ ile gösterilir.
+
+<br>
+
+--
+
+🔻 Örneklem için varyans, $S^{2}$ ve standart sapma $S$ ile gösterilir.
+
+---
+
+###.saltinline[Örneklem için varyans]
+
+<br>
+
+.pull-left[
+
+$\LARGE S^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}$
+
+]
+
+.pull-right[
+
+n: toplam gözlem sayısı
+
+$x_{i}$: i. gözlem değeri
+
+$\bar{x}$: gözlemlerin ortalaması
+
+]
+
+<br>
+
+--
+
+###.saltinline[Örneklem için standart sapma]
+
+<br>
+
+$\LARGE S=\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}$
+
+---
+
+###📎 Varyansın birimi gözlemlerin birimlerinin karesidir. Örneğin, $cm$ birimine sahip uzunluk verileri için varyans hesaplandığında birim $cm^{2}$ olacaktır.
+
+<br>
+--
+
+###📎 Standart sapmanın birimi ise gözlem birimi ile aynıdır. Bu nedenle verinin yayılımı için genellikle tercih edilir.
+
+<br>
+--
+
+###📎 Gözlemlerin ortalama etrafındaki yayılımı arttıkça standart sapma (ve varyans) büyür. Tersi olarak gözlem değerleri birbirine benzer ise ortalamadan sapma az olacak ve standart sapma küçük olacaktır.
+
+<br>
+---
+class: center,inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+
+###Standart sapma (veya varyans) .heatinline[küçük] olduğunda gözlemlerin birçoğu birbirine benzerdir yani gözlemler .heatinline[homojendir.]
+
+--
+
+###Standart sapma .heatinline[büyük] ise, gözlemlerin çoğunluğu birbirinden farklıdır yani gözlemler .heatinline[heterojendir.]
+
+---
+
+🔆 10, 15, 22, 26, 31, 40 örnek verilerinin varyansı ve standart sapması nedir?
+
+<br>
+
+.pull-left[
+| $x_{i}$ | $(x_{i}-\bar{x})$ | $(x_{i}-\bar{x})^{2}$ |
+|:-----:|:---------------:|:-------------------:|
+|10|-14|196|
+|15|-9|81|
+|22|-2|4|
+|26|2|4|
+|31|7|49|
+|40 |16 |256 |
+| $+$ | | |
+|144|0|590|
+
+]
+
+.pull-right[
+
+$\Large \bar{x}=\frac{144}{6}=24$
+
+<br>
+
+$\Large s^{2}=\frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}=\frac{590}{5}=118$
+
+<br>
+
+$\Large s=\sqrt{118}\cong11$
+]
+
+---
+
+###.saltinline[Ortalamar aynı, varyanslar farklı, karşılaştırılabilir ✅]
+
+```{r echo=FALSE}
+library(plotly)
+fig <- plot_ly(alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~rnorm(500,0,2),name="örn1")
+fig <- fig %>% add_histogram(x = ~rnorm(500,0,7),name="örn2")
+fig <- fig %>% layout(barmode = "overlay")
+fig
+```
+
+
+---
+
+###.saltinline[Ortalamalar farklı, varyanslar aynı, karşılaştırılamaz ❌]
+
+```{r echo=FALSE}
+library(plotly)
+fig <- plot_ly(alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~rnorm(500,0,7),name="örn3")
+fig <- fig %>% add_histogram(x = ~rnorm(500,8,7),name="örn4")
+fig <- fig %>% layout(barmode = "overlay")
+fig
+```
+
+
+---
+
+####.salt[Değişim Katsayısı]
+
+Farklı veri setlerinin ortalamaları farklı olduğunda varyans ve standart sapmayı kullanarak bu verilerin değişkenliklerini karşılaştırmak mümkün değildir.
+
+--
+
+Ayrıca, karşılaştırılan verilerin birimleri farklı olduğunda (örneğin yaş ve yıllık maaş gibi) **birimsiz** bir ölçüte ihtiyaç duyulur.
+
+--
+
+###.saltinline[Popülasyon için Değişim Katsayısı (DK)]
+
+$\LARGE DK=\frac{\sigma}{\mu}$
+
+
+<br>
+
+--
+
+###.saltinline[Örneklem için Değişim Katsayısı (DK)]
+
+$\LARGE DK=\frac{s}{\bar{x}}$
+
+---
+class: center,inverse
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+###Değişim katsayısı .heatinline[küçük] olan verinin gözlem değerleri arasındaki değişimin az yani .heatinline[homojen] olduğunu, değişim katsayısı .heatinline[büyük] olan verinin ise gözlem değerleri arasındaki değişimin daha çok yani .heatinline[heterojen] olduğunu söyleyebiliriz.
+
+---
+
+🔆 6 kadın ve 9 erkek izleyicinin belli bir günde kaç saat TV seyrettiği aşağıda verilmiştir. Kadınlar mı yoksa erkekler mi TV seyretme süresi bakımından daha homojendir? (her iki grubun anakitle olduğu varsayılıyor.)
+
+
+**Kadın:** 4,7,4,3,5,1
+
+**Erkek:** 6,6,8,9,2,7,6,5,1
+
+<br>
+
+.pull-left[
+
+$\large \mu_{K}=\frac{4+7+4+3+5+1}{6}=4$
+
+$\large \sigma_{K}^{2}=\frac{(4-4)^{2}+(7-4)^{2}+...+(1-4)^{2}}{6}\cong 3.33$
+
+$\large \sigma_{K}=\sqrt{3.33}=1.83$
+
+<br>
+
+$\large \mu_{E}\cong 5.55$
+
+$\large \sigma_{E}^{2}=6.02$
+
+$\large \sigma_{E}=2.45$
+]
+
+.pull-right[
+
+$\large DK_{K}=\frac{\sigma_{K}}{\mu_{K}}=\frac{1.83}{4}$
+
+<br>
+
+$\large DK_{E}=\frac{\sigma_{E}}{\mu_{E}}=\frac{2.45}{5.55}$
+
+<br>
+
+#### ☝🏾 $\mu_{K}<\mu_{E}$ ve $\sigma_{E}>\sigma_{K}$ olduğu görülmektedir. Ancak $DK_{E}<DK_{K}$ bulunarak 9 erkek TV izleyicisinin 4 kadın TV izleyicisine göre TV izleme sürelerinin daha homojen olduğu belirlenmiştir.
+
+]
+
+
+<br>
+
+
+
+
+---
+
+####.salt[Değişim Genişliği (range)]
+
+<br>
+
+İlgili değişkene ilişkin gözlemlerin en büyük değeri ile en küçük değeri arasındaki farka değişim genişliği (range) denir.
+
+<br>
+
+$\Large R=x_{max}-x_{min}$
+
+<br>
+
+Değişim genişliği, değişim aralığını gösteren bir dağılım ölçüsü olup en kaba ölçülerden biridir. Bunun nedeni hesaplamaya yalnızca max ve min değerlerin dahil edilmesidir.
+---
+background-image: url("img/morgan-housel-PcDGGex9-jA-unsplash.jpg")
+background-size: cover
+
+<br>
+
+###Veri seti için en önemli özelliklerden biri de verilerin hangi biçimde bir dağılıma sahip olduğunun belirlenmesidir. 
+
+<br>
+
+###Veri tek tepeli mi yoksa çok tepeli mi?
+
+<br>
+
+###Veri tek tepeli ise simetrik mi yoksa çarpık mı?
+
+---
+
+####.salt[Çarpıklık (Skewness) Katsayısı]
+
+<br>
+
+Dağılımın çarpıklığı hakkında bilgi veren bir ölçü **çarpıklık** katsayısıdır.
+
+<br>
+
+###.saltinline[Çarpıklık katsayısı]
+
+$\LARGE \gamma_{1}=\frac{\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{3}}{S^{3}}$
+
+<br>
+
+$\Large \gamma_{1}>0$ ise dağılım sağa çarpıktır.
+
+$\Large \gamma_{1}<0$ ise dağılım sola çarpıktır.
+
+$\Large \gamma_{1}=0$ ise dağılım simetriktir.
+
+---
+
+###.saltinline[Çarpıklık Değerlendirmesi]
+
+```{r echo=FALSE}
+library(plotly)
+fig <- plot_ly(alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~rexp(1000,rate=2), name="Sağa çarpık")
+fig <- fig %>% add_histogram(x = ~rnorm(1000,0,1), name="Simetrik")
+fig <- fig %>% add_histogram(x = ~rbeta(1000,2,0.5,ncp=2), name="Sola Çarpık")
+fig <- fig %>% layout(barmode = "overlay")
+fig
+```
+
+
+---
+
+####.salt[Basıklık (Kurtosis) Katsayısı]
+
+<br>
+
+Verinin dağılım grafiğinin normal dağılıma göre daha sivri mi yoksa daha basık mı olduğunun bilgisi basıklık katsayısı verir.
+
+<br>
+
+###.saltinline[Basıklık katsayısı]
+
+$\LARGE \gamma_{2}=\frac{\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{4}}{S^{4}}-3$
+
+<br>
+
+$\Large \gamma_{2}>0$ ise dağılım, normal dağılıma göre daha sivridir.
+
+$\Large \gamma_{2}<0$ ise dağılım, normal dağılıma göre daha basıktır.
+
+$\Large \gamma_{2}=0$ ise dağılım, normal dağılıma sahiptir.
+
+---
+
+###.saltinline[Basıklık Değerlendirmesi]
+
+```{r echo=FALSE}
+library(plotly)
+fig <- plot_ly(alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~rnorm(10000, m=0, sd=0.05), name="Sivri")
+fig <- fig %>% add_histogram(x = ~rnorm(10000, m=0, sd=1), name="Normal")
+fig <- fig %>% add_histogram(x = ~rnorm(10000, m=0, sd=3), name="Basık")
+fig <- fig %>% layout(barmode = "overlay")
+fig
+```
+---
+
+####.salt[Mod, Medyan ve Ortalama ile Çarpıklık Değerlendirmesi]
+
+<br>
+
+![](img/sym.png)
+
+---
+
+####.salt[Çeyreklikler (Quartiles)]
+
+Bir verideki gözlemleri küçükten büyüğe doğru sıraladığımızda sıralanmış verileri dört eşit parçaya bölen değerlere çeyrek değerler denir.
+
+<br>
+
+
+.pull-left[
+
+🌀 Birinci çeyreklik $Q_{1}$, verinin ilk %25'lik kısmını içinde barındırır.
+
+
+<br>
+
+🌀 İkinci çeyreklik $Q_{2}$, ortanca olup veriyi ortadan ikiye böler.
+
+
+<br>
+
+🌀 Üçüncü çeyreklik $Q_{3}$, verinin %75'lik kısmını içinde barındırır.
+
+]
+
+.pull-right[
+
+<br>
+
+![](img/quartiles.png)]
+
+---
+
+####.salt[Çeyrekliklerin Hesaplanması]
+
+Veri küçükten büyüğe sıralanır.
+
+📎Birinci çeyreklik sıralanmış veride sıra numarası $\frac{(n+1)}{4}$ olan gözlem değeridir.
+
+$\Large Q_{1}=x_{(\frac{n+1}{4})}$
+
+<br>
+
+--
+
+📎İkinci çeyreklik sıralanmış veride sıra numarası $\frac{(n+1)}{2}$ olan gözlem değeridir.
+
+$\Large Q_{2}=x_{(\frac{n+1}{2})}$
+
+<br>
+
+--
+
+📎Üçüncü çeyreklik sıralanmış veride sıra numarası $\frac{3(n+1)}{4}$ olan gözlem değeridir.
+
+$\Large Q_{3}=x_{(\frac{3(n+1)}{4})}$
+
+---
+
+####.salt[Kutu Grafiği (Box Plot)]
+
+Kutu grafiği çeyreklikler kullanılarak verinin yapısını ortaya çıkarmak için kullanılan basit bir grafiksel yöntemdir. Grafiğin çizimi;
+
+.pull-left[
+
+$Q_{1}=(n+1)/4$
+
+$Q_{3}=3(n+1)/4$
+
+]
+
+.pull-right[
+
+Alt limit(min) $=Q_{1}-1.5(Q_{3}-Q_{1})$
+
+Üst limit(max) $=Q_{3}+1.5(Q_{3}-Q_{1})$
+
+]
+
+Veride alt limitin altında veya üst limitin üzerinde bir gözlem yer alıyorsa bu gözlem **aykırı değer** olarak nitelendirilir.
+
+![](img/boxplot.jpg)
+---
+
+.pull-left[
+
+```{r echo=FALSE}
+muk<-c(83,63,81,76,54,87,84,86,84,60,71,90,92,78,92,84,53,68,80,83,84,71,65,81,94,73,95,82,81,71,76,92,69,61,102,84,67,68,108,88,82,67,78,89,80,97,103,86,64,97,99,89,76,68,65,94,75,95,103,74,103,94,103,83,88,64,67,81,91,97,84,70,105,99,76,72,96,63,84,82,78,89,80,92,106,73,71,70,94,76,71,75,91,81,70,78,56,73,68,82,88,78,81,71,73,81,94,90,61,71,64,54,93,86,87,81,71,65,90,74)
+
+N=length(muk)    #gozlem sayisi
+boxp1 <- plot_ly(y = muk, type = "box",name="Mukavemet"); boxp1
+```
+
+]
+
+.pull-right[
+
+```{r echo=FALSE}
+t<-rnorm(1000)^2
+boxp2 <- plot_ly(y = t, type = "box",name="Norm^2"); boxp2
+```
+]
+
+<br>
+
+---
+
+Çarpıklığı yatay eksende gözlemek daha iyi kavramamızı sağlayacaktır. Verinin sağa çarpık olduğu ve fazla miktarda aykırı değer içerdiği kutu grafikten gözlenebilmektedir.
+
+
+```{r echo=FALSE}
+boxp2.horizontal <- plot_ly(x = t, type = "box",name="Norm^2 Horizontal"); boxp2.horizontal
+```
+
+---
+
+```{r}
+mtcars %>% head(10)
+attach(mtcars)
+hp
+summary(hp)
+sd(hp)
+
+```
+
+---
+
+```{r}
+
+fig <- plot_ly(alpha = 0.6)
+fig <- fig %>% add_histogram(x = ~hp,name="hp")
+fig <- fig %>% layout(barmode = "overlay")
+fig
+
+```
+
+---
+
+```{r}
+plot_ly(x = hp, type = "box",name="Hp")
+
+```
+
+---
+
+```{r}
+mtcars[which(hp==335),]
+```
+
+<img src="img/dinotocat.png" style="float: right;" width="500" height="500" /> 
+
+
