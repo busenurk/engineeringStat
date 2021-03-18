@@ -1485,7 +1485,7 @@ boxp2 <- plot_ly(y = t, type = "box",name="Norm^2"); boxp2
 ```
 ]
 
-<br>
+
 
 ---
 
@@ -1499,6 +1499,7 @@ boxp2.horizontal <- plot_ly(x = t, type = "box",name="Norm^2 Horizontal"); boxp2
 ---
 
 ```{r}
+library(dplyr)
 mtcars %>% head(10)
 attach(mtcars)
 hp
