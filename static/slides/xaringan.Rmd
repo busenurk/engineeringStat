@@ -1374,6 +1374,7 @@ fig <- fig %>% add_histogram(x = ~rnorm(10000, m=0, sd=3), name="Basık")
 fig <- fig %>% layout(barmode = "overlay")
 fig
 ```
+
 ---
 
 ####.salt[Mod, Medyan ve Ortalama ile Çarpıklık Değerlendirmesi]
@@ -1477,14 +1478,16 @@ boxp1 <- plot_ly(y = muk, type = "box",name="Mukavemet"); boxp1
 
 ]
 
+
+
 .pull-right[
 
 ```{r echo=FALSE}
 t<-rnorm(1000)^2
 boxp2 <- plot_ly(y = t, type = "box",name="Norm^2"); boxp2
+
 ```
 ]
-
 
 
 ---
@@ -1495,6 +1498,7 @@ boxp2 <- plot_ly(y = t, type = "box",name="Norm^2"); boxp2
 ```{r echo=FALSE}
 boxp2.horizontal <- plot_ly(x = t, type = "box",name="Norm^2 Horizontal"); boxp2.horizontal
 ```
+
 
 ---
 
