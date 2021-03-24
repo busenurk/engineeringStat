@@ -431,12 +431,6 @@ Sabit bir zamanda gözlenerek elde edilmiş verilerdir. Anket yoluyla derlenen v
 
 ---
 
-class: middle, right
-background-image: url("img/waldemar-brandt-YKtxjGsl1BY-unsplash.jpg")
-background-size: cover
-
----
-
 #Veri Ölçüm Düzeyleri (Ölçekler)
 
 .heatinline[Sınıflama Ölçeği (Nominal Ölçek):] Gözlem sonuçları benzerliklerine veya farklılıklarına göre sınıflandırılıyorsa bu ölçek sınıflama ölçeği olarak adlandırılır. 
@@ -706,7 +700,7 @@ En çok kullanılan eğilim ölçülerini vermeden önce iki önemli kavramı ha
 
 <br>
 
-$\mu=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+x_{3}...+x_{N}}{N}$
+$\Large \mu=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+x_{3}...+x_{N}}{N}$
 
 <br>
 
@@ -724,7 +718,7 @@ Ancak yığın değerlerine ulaşmak her zaman mümkün olmadığından çoğu k
 
 --
 
-$\bar{x}=\frac{\sum_{i=1}^{n} x_{i}}{n}=\frac{x_{1}+x_{2}+x_{3}...+x_{n}}{n}$
+$\Large \bar{x}=\frac{\sum_{i=1}^{n} x_{i}}{n}=\frac{x_{1}+x_{2}+x_{3}...+x_{n}}{n}$
 
 <br>
 
@@ -736,7 +730,7 @@ Yığın için;
 
 --
 
-$\mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{N}$
+$\Large \mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{N}$
 
 <br>
 
@@ -744,7 +738,7 @@ $\mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{
 
 Örnek için;
 
-$\bar{x}=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{n}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{n}$
+$\Large \bar{x}=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{n}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k}f_{k}}{n}$
 
 
 🔆 Bir kreşteki çocukların yaşlarına göre dağılımı aşağıdaki gibi verilmiştir. Aritmetik ortalamayı bulunuz.
@@ -764,7 +758,7 @@ $\bar{x}=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{n}=\frac{x_{1}f_{1}+x_{2}f_{2}+...+x_{k
 
 .pull-right[
 
-$\mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{1(6)+2(12)+4(9)+5(6)}{47}=2.94$
+$\Large \mu=\frac{\sum_{j=1}^{k}x_{j}f_{j}}{N}=\frac{1(6)+2(12)+4(9)+5(6)}{47}=2.94$
 
 
 
@@ -848,13 +842,13 @@ Toplam gözlem sayısının çift veya tek olmasına göre aşağıdaki gibi bul
 
 <br>
 
-${x_{(\frac{N+1}{2})}}$  , N tek ise
+$\Large {x_{(\frac{N+1}{2})}}$  , N tek ise
 
 <br>
 
 --
 
-$\frac{x_{(\frac{N}{2})}+x_{(\frac{N}{2}+1)}}{2}$  , N çift ise
+$\Large \frac{x_{(\frac{N}{2})}+x_{(\frac{N}{2}+1)}}{2}$  , N çift ise
 
 <br>
 
@@ -862,7 +856,7 @@ $\frac{x_{(\frac{N}{2})}+x_{(\frac{N}{2}+1)}}{2}$  , N çift ise
 
 🔆 3, 4, 5, 8, 8, 9, 10 şeklinde sıraya dizilen 7 birimin medyanı (ortancası),
 
-$x_{medyan}=x_{\frac{N+1}{2}}=x_{\frac{7+1}{2}}=x_{(4)}=8$
+$\Large x_{medyan}=x_{\frac{N+1}{2}}=x_{\frac{7+1}{2}}=x_{(4)}=8$
 
 
 ---
@@ -946,7 +940,7 @@ background-size: cover
 
 --
 
-$G=\sqrt[n]{\prod_{i=1}^{n}x_{i}}$
+$\Large G=\sqrt[n]{\prod_{i=1}^{n}x_{i}}$
 
 --
 
@@ -993,15 +987,13 @@ Böylece son dört yıllık ortalama nüfus artışı %43.27 dir.]
 
 <br>
 
-$H=\frac{1}{\frac{1}{n}\sum_{i=1}^{n}\frac{1}{x_{i}}}$
-
-<br>
+$\Large H=\frac{1}{\frac{1}{n}\sum_{i=1}^{n}\frac{1}{x_{i}}}$
 
 --
 
 🔆 Bir tekstil fabrikasında çalışan dört kişinin bir pantolonu ütüleme süreleri 10dk, 6dk, 4dk ve 5dk dır. Buna göre bu fabrikada bir pantolon ortalama kaç dakikada ütülenir?
 
-$H=\frac{1}{\frac{1}{4}(\frac{1}{10}+\frac{1}{6}+\frac{1}{4}+\frac{1}{5})}=5.58$ dk
+$\Large H=\frac{1}{\frac{1}{4}(\frac{1}{10}+\frac{1}{6}+\frac{1}{4}+\frac{1}{5})}=5.58$ dk
 
 ---
 class: center, middle
@@ -1165,7 +1157,7 @@ $\Large s=\sqrt{118}\cong11$
 
 ---
 
-###.saltinline[Ortalamar aynı, varyanslar farklı, karşılaştırılabilir ✅]
+###.saltinline[Ortalamalar aynı, varyanslar farklı, karşılaştırılabilir ✅]
 
 ```{r echo=FALSE}
 library(plotly)
@@ -1473,12 +1465,11 @@ Veride alt limitin altında veya üst limitin üzerinde bir gözlem yer alıyors
 muk<-c(83,63,81,76,54,87,84,86,84,60,71,90,92,78,92,84,53,68,80,83,84,71,65,81,94,73,95,82,81,71,76,92,69,61,102,84,67,68,108,88,82,67,78,89,80,97,103,86,64,97,99,89,76,68,65,94,75,95,103,74,103,94,103,83,88,64,67,81,91,97,84,70,105,99,76,72,96,63,84,82,78,89,80,92,106,73,71,70,94,76,71,75,91,81,70,78,56,73,68,82,88,78,81,71,73,81,94,90,61,71,64,54,93,86,87,81,71,65,90,74)
 
 N=length(muk)    #gozlem sayisi
+
 boxp1 <- plot_ly(y = muk, type = "box",name="Mukavemet"); boxp1
 ```
 
 ]
-
-
 
 .pull-right[
 
@@ -1487,8 +1478,8 @@ t<-rnorm(1000)^2
 boxp2 <- plot_ly(y = t, type = "box",name="Norm^2"); boxp2
 
 ```
-]
 
+]
 
 ---
 
@@ -1537,5 +1528,652 @@ mtcars[which(hp==335),]
 ```
 
 <img src="img/dinotocat.png" style="float: right;" width="500" height="500" /> 
+
+---
+
+####.heat[🚀 OLASILIK NEDİR?]
+
+<br>
+
+Gelecekte ortaya çıkması muhtemel olayın olabilirliğinin ölçüsü
+
+<br>
+
+.pull-left[
+
+Belirsizliğin ölçüsü
+
+<br>
+
+Çıkarsama için güvenilirliğin ölçüsü
+
+<br>
+
+Rastgeleliğin ölçüsü
+
+]
+
+.pull-right[
+
+```{r pressure, echo=FALSE, fig.cap="", out.width = '50%'}
+knitr::include_graphics("https://media.giphy.com/media/ygzkZPxmh6HgUzbYFz/giphy.gif")
+```
+
+
+]
+
+
+Olasılık istatistiğin önemli bir kısmıdır. `Rastgeleliğin` veya `belirsizliğin` olduğu durumlarda karar vermede olasılık teorisi önemli rol oynar. Kitle hakkında bu kararları verirken **örneklemlerden** elde edilen bilgiler kullanılır.
+
+---
+
+**.heatinline[Rastgele deney:]** Deneyin sonuçlarını bilmekle birlikte deney gerçekleştiğinde elde edilenin bilinmemesi.
+
+--
+
+🍒 Bir hilesiz zarı yuvarlama deneyi rastgele deneydir. Sonuçları biliniyor, (1, 2, 3, 4, 5, 6) ancak deney gerçekleştiğinde hangisinin elde edileceği bilinmiyor.
+
+--
+
+<br>
+
+**.heatinline[Örnek nokta:]** Bir rastgele deneyin sonuçlarının her birine örnek nokta denir.
+
+--
+
+🍒 Zar deneyi için örnek noktalar; 1, 2, 3, 4, 5, 6
+
+--
+
+<br>
+
+**.heatinline[Olay:]** Rastgele deneyden elde edilecek sonuçlara ilişkin bir alt küme. Olanaksız olay ise gerçekleşmesi mümkün olmayan olaydır ( $\emptyset$ ), zar deneyi için 7 gelmesi olayı $\emptyset$ dir.
+
+<br>
+
+--
+
+**.heatinline[Örnek uzay:]** Rastgele deneyin tüm sonuçları kümesidir. S ile gösterilir. Olay, S'in alt kümesidir.
+
+Zar deneyi için $S=\{1,2,3,4,5,6\}$
+
+A olayı çift sayı ise $A=\{2,4,6\}$
+
+$A \subset S$
+
+---
+
+.pull-left[
+
+🔆 Bir madeni parayı 2 kez fırlatalım. Örnek uzay,
+
+
+$S=\{YY,YT,TY,TT\}$
+
+<br>
+
+$B=\{YY,TT\}$     $\gets$ olay çünkü $B \subset S$
+
+<br>
+
+TT $\to$ bir örnek nokta,  $TT\in S$
+
+<br>
+
+$\{TT\}$ $\to$ bir olay $\{TT\}\subset S$
+
+<br>
+
+Kaç olay vardır? 
+
+$2^{n}=2^{2}$
+
+]
+
+.pull-right[
+
+🔆 Hilesiz iki zar birlikte atılıyor. Örnek uzay,
+
+$S=\{(1,1),(1,2),(1,3),...,(2,4),...,(3,4)...,(6,6)\}$
+
+<br>
+
+$F=\{(2,3),(5,6)\}$     $\gets$ olay çünkü $F \subset S$
+
+<br>
+
+(6,6) $\to$ bir örnek nokta,  $(6,6)\in S$
+
+<br>
+
+$\{(5,5)\}$ $\to$ bir olay $\{(5,5)\}\subset S$
+
+<br>
+
+Kaç olay vardır? 
+
+$6^{n}=6^{2}$
+
+]
+
+---
+
+####.heat[Olasılık (Kolmogorov) Aksiyomları] 
+
+<br>
+
+Olasılığın tanımlanmasındaki zorluklar nedeniyle matematikçiler olasılığı bir fonksiyon olarak ifade etmişlerdir. Rus matematikçi Andrey Kolmogorov (1933) aksiyomları ile olasılık fonksiyonunu tanımlamıştır.
+
+.pull-left[
+
+🔻 Herhangi bir olayın olasılığı 0 ile 1 arasındadır. A olayı için,
+
+$0\leq P(A) \leq 1$
+
+<br>
+
+🔻 Örnek uzaydaki noktaların olasılıkları toplamı 1'dir. (S: örnek uzay)
+
+ $P(S)=1$
+
+
+]
+
+.pull-right[
+
+<img src="img\Kolmogorov1.jpg" style="float: right;" width="250" height="300" title="Andrey Kolmogorov" /> 
+
+
+]
+
+<br>
+
+---------------------
+
+📎️ [Andrey Kolmogorov](https://tr.wikipedia.org/wiki/Andrey_Kolmogorov)
+
+---
+
+####.heat[Olasılık (Kolmogorov) Aksiyomları] 
+
+<br>
+
+🔻 A ve B, S örnek uzayındaki herhangi iki **ayrık olay** $(A\cap B=\emptyset)$ olduğunda,
+
+ $P(A\cup B)=P(A)+P(B)$ dır.
+
+
+<br>
+
+🔻 $A_{1},A_{2},...$ olayları S örnek uzayında tanımlı ayrık olaylar olmak üzere,
+
+$\large P(\cup_{\infty}^{i=1}A_{i})=\sum_{i=1}^{\infty}P(A_{i})$
+
+<br>
+
+🔻 A olayı S örnek uzayının bir alt kümesi olsun. A olayının tümleyeninin olasılığı,
+
+$P(A^{c})=1-P(A)$
+
+---
+
+####.heat[Olasılık Fonksiyonunun Özellikleri]
+
+<br>
+
+S örnek uzay, A ve B bu örnek uzayda iki olay olsun.
+
+🔻 Eğer $P(A)=0$ ise A olanaksız olaydır. Eğer $P(A)=1$ ise A kesin olaydır.
+
+--
+
+🔻 Eğer $A\subset B$ ise $P(A)\leq P(B)$ dir.
+
+--
+
+🔻 Eğer A ile B ayrık olmayan iki olay ise
+
+$P(A\cup B )=P(A)+P(B)-P(A\cap B)$ dir.
+
+**Not:** $A\cap B=\emptyset$ olduğunda A ile B **ayrık olaylardır.**
+
+--
+
+🔻 Eğer A ile B ayrık iki olay ise
+
+$P(A\cup B )=P(A)+P(B)$ dir.
+
+--
+
+🔻 $P(A)+P(A^{c})=1$ dir. Çünkü, $A\cap A^{c}=\emptyset$ dir. Dolayısıyla  $P(A^{c})=1-P(A)$.
+
+---
+
+🔆 Bir paranın 3 kez atıldığı bir deney için örnek uzayı oluşturunuz.
+
+<br>
+
+$S=\{YYY, YYT, YTY, TYY, YTT, TYT, TTY, TTT\}$
+
+<br>
+
+Hiç yazı gelmeme olasılığı; $\large P(0)=\frac{1}{8}$
+
+1 tane yazı gelme olasılığı; $\large P(1)=\frac{3}{8}$
+
+2 tane yazı gelme olasığı; $\large P(2)=\frac{3}{8}$
+
+3 tane yazı gelme olasılığı; $\large P(3)=\frac{1}{8}$
+
+<br>
+
+Yazı gelmesi ile ilgili tüm durumların olasılıkları toplamı;
+
+$P(0)+P(1)+P(2)+P(3)=1$
+
+---
+class: inverse
+background-image: url("img/benjamin-balazs-PgLOQTUsy1c-unsplash.jpg")
+background-size: cover
+
+
+###.fat[Olasılık Yaklaşımları]
+
+<br>
+
+## ▫️ Klasik olasılık
+
+<br>
+
+## ▫️ Deneysel olasılık
+
+<br>
+
+## ▫️ Subjektif olasılık
+
+---
+
+####.salt[Klasik Olasılık]
+
+Örnek uzaydaki örnek noktalar eşit şanslıdır.
+
+Klasik Olasılık $\Large =\frac{\text{istenen olayın örnek nokta sayısı}}{\text{örnek noktalar sayısı}}=\frac{n(A)}{n(S)}$
+
+<br>
+
+.pull-left[
+
+🔆 Bir zar yuvarlama deneyi için çift sayı gelme olasılığı;
+
+$S=\{1, 2, 3, 4, 5, 6 \}$
+
+$n(S)=6$
+
+
+$A=\{2, 4, 6 \}$
+
+$n(A)=3$
+
+$\large P(A)=\frac{n(A)}{n(S)}=\frac{3}{6}=\frac{1}{2}$
+
+]
+
+.pull-right[
+
+🔆 Mavi ve sarı bir çift zar yuvarlansın. Zarlar üzerindeki sayıların aynı olması olasılığı nedir?
+
+B: aynı sayı olması
+
+$B=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6)\}$
+
+$n(S)=36$
+
+$n(B)=6$
+
+$\large P(B)=\frac{6}{36}=\frac{1}{6}$
+
+]
+
+---
+
+####.salt[Deneysel Olasılık]
+
+Deneysel olasılık $\Large =\frac{\text{istenen olay için gözlem sayısı}}{\text{gözlem sayısı}}=\frac{\text{istenen olayın frekansı}}{\text{toplam frekans}}$
+
+<br>
+
+🔆 Aşağıda bilgisi yer alan çalışmada kadınların oranı (olasılığı) nedir?
+
+<br>
+
+.pull-left[
+
+|Sınıf|Frekans|Relatif Frekans|
+|:---:|:---:|:---:|
+|K|35| $\large \frac{35}{55}$ |
+|E|20| $\large \frac{20}{55}$ |
+
+]
+
+.pull-right[
+
+$\large P(K)=\frac{35}{55}$
+
+]
+
+---
+
+#####.salt[Bir deneysel olasılıkta deneme sayısı arttıkça deneysel olasılık klasik olasılığa yaklaşır.]
+
+<br>
+
+🔆 Hilesiz bir para atışı deneyinde tura gelme sayıları ve relatif frekans lar aşağıdaki gibi verilmiştir.
+
+<br>
+
+.pull-left[
+
+|Deneme sayısı | Tura sayısı | Relatif frekans|
+|:--:|:--:|:--:|
+|1|0|0|
+|5|2|2/5=0.4|
+|10|6|6/10=0.6|
+|20|11|11/20=0.55|
+|50|27|27/50=0.54|
+|100|53|53/100=0.53|
+|1000|495|495/1000=0.495|
+|10000|5010|5010/10000=0.501|
+
+]
+
+.pull-right[
+
+Bu deney için klasik olasılık 1/2 dir.
+
+]
+
+---
+
+####.salt[Subjektif Olasılık]
+
+Kişi ya da gözlemlere dayanarak (ön bilgi üzerinden) bir oran verilmesidir.
+
+
+Bir sabah kalktığında havanın bulutlu olduğun görüp büyük bir olasılıkla ya da %40 yağmur yağabilir yorumu.
+
+<br>
+
+####.salt[Sayma Teknikleri]
+
+Bir A olayının gerçekleşmesi olasılığı $P(A)$'nın hesaplanmasında A olayının ortaya çıkma sayısının ve örnek uzayın belirlenmesinde bazı teknikler kullanılır.
+
+**.saltinline[Çarpma Kuralı:]** Bir olay n farklı yol ile ortaya çıksın. Bunu izleyen ikinci olay, bu n yolun her biri için m farklı biçimde ortaya çıkıyor ise bu iki olay birlikte $m\times n$ farklı biçimde ortaya çıkar.
+
+
+
+
+**.saltinline[Toplama Kuralı:]** Bir olay farklı yöntemler ile gerçekleşebilir olsun. Birinci yöntem ile bu olay n farklı biçimde, ikinci yöntem ile m farklı biçimde gerçekleşebiliyor ise bu olay toplam $m+n$ farklı biçimde gerçekleşebilir.
+
+---
+
+.pull-left[
+
+####.salt[Çarpma Kuralı]
+
+<br>
+
+🔆 Bir öğrenci okuldan eve giderken ulaşım seçenekleri,
+
+<br>
+
+Yolun 1. bölümü için 5 farklı otobüs hattı 🚐
+
+Yolun 2. bölümü için 3 farklı otobüs hattı 🚐
+
+Yolun 3. bölümü için 2 farklı otobüs hattı
+
+<br>
+
+biçimindedir. Bu durumda bu öğrenci her gün okuldan eve giderken $5\times 3\times 2=30$ farklı yol tercihinden bir tanesini kullanır.
+
+
+
+]
+
+.pull-right[
+
+####.salt[Toplama Kuralı] 
+
+<br>
+
+🔆 Bir öğrenci evden okula giderken ulaşım seçenekleri,
+
+<br>
+
+2 farklı otobüs hattı 🚐
+
+Deniz yolu ⛴
+
+2 farklı arkadaşının aracı 🚗
+
+<br>
+
+biçimindedir. Bu öğrencinin evden okula gitmek için toplam $2+1+2=5$ farklı seçeneği vardır.
+
+
+
+]
+---
+
+####.salt[Permütasyon]
+
+<br>
+
+Birimlerin oluşturduğu kümedeki elemanların bir kısmının ya da tümünün belli bir sırada sıralanmasına **permütasyon** denir.
+
+
+***n tane birbirinden farklı nesnenin n tanesi toplam n! kadar farklı biçimde sıralanabilir.***
+
+
+<br> 
+
+
+🔆 Bir sırada bekleyen A, B, C, D kişileri kaç farklı biçimde sıralanabilir.
+
+
+.pull-left[
+
+$4!=4.3.2.1=24$
+
+]
+
+.pull-right[
+
+🙍🏻🙍🏼🙍🏽🙍🏾
+
+🙍🏻🙍🏽🙍🏾🙍🏼
+
+.
+
+.
+
+
+🙍🏾🙍🏻🙍🏼🙍🏽
+]
+
+---
+
+####.salt[Permütasyon]
+
+<br>
+
+n tane birbirinden farklı nesnenin r $(r\leq n)$ tanesinin sıralanması ile elde edilecek farklı sıralamaların sayısı
+
+<br>
+
+
+$\Large _{n} P_{r}=\frac{n!}{(n-r)!}=n(n-1)(n-2)...(n-r+1)$
+
+<br>
+
+Burada ifade edilen durumda, n tane nesneden r tanesi seçilerek oluşturulan farklı sıralanmaların sayısına **permütasyon** denir.
+
+<br>
+
+**Permütasyonda nesnelerin sıraları önemlidir.** Her bir sıralama birbirinden farklıdır. Örneğin AB ve BA farklı sıralanmalardır.
+
+---
+
+####.salt[Permütasyon]
+
+🔆 10 kişilik sınıftan bir başkan ve bir başkan yardımcısı seçilecektir. Seçimler rastgele olarak yapılacak ve ilk seçilen başkan ve ikinci seçilen başkan yardımcısı olacak ise bu 2 pozisyon kaç farklı biçimde oluşturulabilir?
+
+<br>
+
+--
+
+10 kişi içinden 2 kişi seçilmesi durumu,
+
+
+$\Large _{10} P_{2}=\frac{10!}{(10-2)!}=\frac{10.9.8!}{8!}=90$
+
+<br>
+
+--
+
+**Alternatif çözüm,** 
+
+1. kişi için 10 farklı seçenek, 
+
+2. kişi için 9 farklı seçenek olduğundan 
+
+$10\times 9=90$ farklı seçeneğimiz vardır.
+
+---
+
+####.salt[Permütasyon]
+
+🔆 a, b, c, d harflerinin 3 tanesi kaç farklı biçimde sıralanır?
+
+--
+
+$\Large _{4} P_{3}=\frac{4!}{(4-3)!}=24$ veya 4.3.2=24 farklı biçimde sıralanır.
+
+<br>
+
+--
+
+🔆 2 kadın ile 3 erkek, kadınlar yan yana olmak koşulu ile kaç farklı biçimde oturabilirler?
+
+--
+
+2K, 3E olmak üzere toplam 5 kişi vardır. 2 kadının yan yana olması isteniyor. Bu 2 kadını 1 kişi olarak düşünürsek toplam 4 kişi olur. Bu 4 kişi toplam $4!=24$ farklı biçimde sıralanır. Ayrıca 2 kadın kendi aralarında 2! farklı biçimde sıralanır. Böylece cevap $2!.4!=48$ olur.
+
+--
+
+<br>
+
+🔆 8 öğrenci yan yana sıralanacaklardır. Ali ile Ayşe yan yana gelmek istemiyorlar ise kaç farklı biçimde sıralanabilirler?
+
+--
+
+8 kişi toplam $8!$ farklı biçimde sıralanır. Ali ve Ayşe'nin yan yana olduğu sıralamaların sayısı $2!.7!$ olur.
+
+Böylece Ali ve Ayşe'nin yan yana olmadığı sıralamaların sayısı $8!-2!.7!=6.7!$ olur. 
+
+---
+
+####.salt[Kombinasyon]
+
+<br>
+
+Permütasyonda birimlerin sırası önemlidir. Birimlerin sıralanmasında **sıranın önemli olmadığı sıralamalara kombinasyon** denir. n farklı birimden k tanesinin kaç farklı biçimde seçileceğini hesaplamak istersek (seçim sırası önemli olmamak koşulu ile) kombinasyon formülü
+
+<br>
+
+$\Large _{n} C_{k}={n\choose k}=\frac{n!}{(n-k)!k!}$
+
+
+<br>
+
+🔆 4 kişilik bir asansöre bekleyen 10 kişi kaç farklı biçimde binebilir?
+
+--
+
+Asansöre hangi sıralama ile girildiği önemli değildir, önemli olan asansöre binebilmektir. Bu nedenle 10 kişiden 4'er kişilik 
+
+$\Large {10\choose 4}=\frac{10!}{6!4!}=\frac{10.9.8.7.6!}{6!4.3.2}=10.3.7=210$
+
+farklı grup oluşturulabilir.
+
+---
+
+####.salt[Kombinasyon]
+
+<br>
+
+🔆 5 doktor ve 7 hemşire arasından 2 doktor ve 4 hemşire yer alan bir ekip oluşturulacaktır.Bu ekip kaç farklı biçimde oluşturulabilir?
+
+--
+
+$\Large {5\choose 2}{7\choose 4}=10 \times 35=350$
+
+--
+
+<br>
+
+🔆 Bir minibüste şoför koltuğu dahil 10 kişilik yer vardır. 10 kişi pikniğe gitmek üzere minibüse kaç farklı şekilde yerleşebilir? (10 kişiden 3 tanesi ehliyetlidir.)
+
+--
+
+$\Large _{3} C_{1} \times _{9} C_{9}=\frac{3!}{1!(3-1)!}=\frac{9!}{(9-9)!}=3\times 9!$
+
+---
+
+####.salt[Koşullu Olasılık]
+
+Bir olayın gerçekleştiği biliniyorken başka bir olayın gerçekleşme olasılığına **koşullu olasılık** denir.
+
+<br>
+
+A ve B örnek uzayda tanımlanmış iki olay ve $P(B)\neq0$ olmak üzere B olayının gerçekleştiği bilindiğinde A olayının koşullu olasılığı,
+
+$\Large P(A/B)=\frac{P(A\cap B)}{P(B)}$
+
+olarak tanımlanır. 
+
+<br>
+
+
+Bu tanımdan A ve B olaylarının birlikte gerçekleşme olasılığı,
+
+
+$\Large P(A\cap B)=P(A/B)P(B)$
+
+biçiminde hesaplanır.
+
+
+---
+
+####.salt[Koşullu Olasılık]
+
+<br>
+
+🔆 50 tane kalemin 5 tanesinin arızalı olduğu biliniyor. Bu 50 kalemin içinden rastgele 2 tanesi seçiliyor. Her iki kalemin de arızalı olma olasılığını bulunuz.
+
+<br>
+--
+
+$A_{1}=\{\text{1. kalemin arızalı olması}\}$
+
+$A_{2}=\{\text{2. kalemin arızalı olması}\}$
+
+<br>
+
+$\large P(A_{1})=\frac{5}{50}$
+
+$\large P(A_{2}/A_{1})=\frac{4}{49}$
+
+$\large P(A_{1}\cap A_{2})=P(A_{1})P(A_{2}/A_{1})=\frac{5}{50}\frac{4}{49}=0.008$
 
 
