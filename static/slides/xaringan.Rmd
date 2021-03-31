@@ -2176,4 +2176,716 @@ $\large P(A_{2}/A_{1})=\frac{4}{49}$
 
 $\large P(A_{1}\cap A_{2})=P(A_{1})P(A_{2}/A_{1})=\frac{5}{50}\frac{4}{49}=0.008$
 
+---
 
+🔆 İki zar birlikte atılıyor. Toplam 6 gelmişse zarlardan birinin 2 gelme olasığı nedir?
+
+<br>
+
+Toplamın 6 gelmesi olayı B ile ve zarlardan birinin 2 gelmesi olayı A ile gösterilirse,
+
+$A=\{(2,1),(2,3),(2,4),(2,5),...,(6,2)\}$
+
+$B=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}$
+
+$A\cap B=\{(2,4),(4,2)\}$
+
+<br>
+
+.pull-left[
+
+$\large P(B)=\frac{5}{36}$, $\large P(A)=\frac{10}{36}$
+
+]
+
+.pull-right[
+
+ $P\large (A\cap B)=\frac{2}{36}$
+
+]
+
+<br>
+
+Böylece, B bilinirken A'nın koşullu olasılığı;
+
+$\large P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{2/36}{5/36}=\frac{2}{5}$
+
+---
+
+🔆 Bir büyük alışveriş merkezinde bir ay boyunca yapılan bir çalışmada 1400 kişi rastgele seçiliyor ve aşağıdaki veri tablosu elde ediliyor.
+
+
+```{r, echo=FALSE, fig.cap="", out.width = '60%'}
+knitr::include_graphics("img/ör3.32.png")
+```
+
+Bu kişiler arasından rastgele seçilen bir kişinin e-posta adresi olduğu biliniyorsa bu kişinin bir kadın kadın olma olasılığı nedir?
+
+<br>
+
+
+K: Bir kadının seçilmesi olayı
+
+V: e-posta adresi olan bir kişinin seçilmesi olayı
+
+<br>
+
+$\large P(K|V)=\frac{P(K\cap V)}{P(V)}=\frac{550}{950}=\frac{11}{19}$
+
+---
+
+🔆 Mehmet, şirketinin Çankırı'da bir şube açma şansının %30 olduğunu tespit eder. Eğer bu gerçekleşirse kendisinin bu şubeye müdür olarak atanacağından %60 emindir. Bu durumda Mehmet'in Çankırı'da şube müdürü olması olasılığı nedir?
+
+<br>
+
+B: Çankırı'da şube açma olayı
+
+M: Mehmet'in Çankırı'daki şubeye müdür olması olayı
+
+<br>
+
+İstenen olasılık, $P(B\cap M)=P(B)P(M|B)$
+
+<br>
+
+$P(B)=0.30$
+
+$P(M|B)=0.60$
+
+<br>
+
+Böylece, $P(B\cap M)=(0.30)(0.60)=0.18$
+
+---
+
+🔆 Okulumuz öğrencilerinden %45'i istatistik, %35'i bilgisayar derslerinde ve %25'i hem istatistik hem de bilgisayar derslerinde başarısızdır. Rastgele seçilen bir öğrencinin,
+
+**a)** Bilgisayardan başarısız ise, istatistikten de başarısız olma olasılığı
+
+**b)** İstatistikten başarısız ise, bilgisayardan da başarısız olma olasılığı
+
+**c)** Bu iki dersten en az birinden başarısız olma olasılığını bulunuz.
+
+<br>
+
+**B:** bilgisayar dersinden başarısız olma olayı
+
+**I:** istatistik dersinden başarısız olma olayı
+
+<br>
+
+$P(B)=0.35$, $P(I)=0.45$ ve $P(B\cap I)=0.25$
+
+
+.pull-left[
+
+**a)** $\large P(I|B)=\frac{P(B\cap I)}{P(B)}=\frac{0.25}{0.35}=0.71$
+
+]
+
+.pull-right[
+
+**b)** $\large P(B|I)=\frac{P(B\cap I)}{P(I)}=\frac{0.25}{0.45}=0.55$
+
+]
+
+
+**c)** $\large P(B\cup I)=P(B)+P(I)-P(B\cap I)=0.35+0.45-0.25=0.55$
+
+---
+
+####.salt[Bağımsız Olay]
+
+A ve B gibi iki olaydan birinin gerçekleşmesi diğerinin gerçekleşme olasılığını etkilemiyorsa A ve B olayları **bağımsızdır.**
+
+<br>
+
+A ve B olayları bağımsız ise,
+
+$P(A|B)=P(A)$  
+
+$P(B|A)=P(B)$ 
+
+olur. Böylece, A ve B bağımsız ise koşullu olasılık formülünden
+
+$\large P(A|B)=\frac{P(A\cap B)}{P(B)}$ $\Rightarrow$ $P(A\cap B)=P(A)P(B)$
+
+<br>
+
+Yani,
+
+.heatinline[A ve B olayları bağımsız] ise $P(A\cap B)=P(A)P(B)$ olur.
+
+---
+
+🔆 Üç paranın birlikte atılması deneyinde,
+
+$A=\{\text{En az iki tura gelmesi}\}$
+
+$B=\{\text{İki tura gelmesi}\}$ olsun. A ve B olayları bağımsız mıdır?
+
+<br>
+
+$S=\{YYY,YYT,YTY,TYY,YTT,TYT,TTY,TTT\}$
+
+Bu durumda, 
+
+$P(A)=4/8$
+
+$P(B)=3/8$ ve 
+
+$P(A\cap B)=3/8$ dir. 
+
+<br>
+
+Böylece,
+
+$P(A\cap B)\neq P(A)P(B)$ olduğundan A ve B olayları bağımsız değildir, **bağımlıdır.**
+
+---
+class: inverse,center
+background-image: url("img/jason-tuinstra-551608-unsplash.jpg")
+background-size: cover
+
+<br>
+
+# Ayrık Olay $\neq$  Bağımsız Olay
+
+---
+
+.heatinline[**Bağımsız olay:**] Bir olayın olasılığı diğer olayın olasılığından etkilenmez. Olayların aynı zamanda olma olasılıkları sıfır değil ise ortak noktaları var demektir.
+
+$A\cap B \neq \emptyset$
+
+<br>
+
+
+.heatinline[**Ayrık olay:**] İki olayın ortak örnek noktası yoktur.
+
+$A\cap B = \emptyset$
+
+<br>
+
+🔺 İkiden fazla olayın **ayrık** olma durumu,
+
+$P(A_{1}\cup A_{2} \cup ... \cup A_{k})=P(A_{1})+P(A_{2})+...+P(A_{k})$
+
+<br>
+
+🔺 İkiden fazla olayın **bağımsız** olma durumu,
+
+$P(A_{1}\cap A_{2} \cap ... \cap A_{k})=P(A_{1})P(A_{2})...P(A_{k})$
+
+---
+
+🔆 Başarı durumu çok iyi olmayan bir öğrencinin kimya dersinden geçme şansı 0.35, matematik dersinden geçme şansı 0.40 ve her ikisinden geçme şansı 0.12 dir. Öğrencinin kimya dersinden geçmesi ve matematik dersinden geçmesi olasılıkları bağımsız mıdır? Her iki dersten de başarısız olma olasılığı nedir?
+
+
+**K:** kimya dersinden geçme olayı
+
+**M:** matematik dersinden geçme olayı
+
+<br>
+
+.pull-left[
+
+$P(K\cap M)=P(K)P(M)$ ise K ve M olayları bağımsızdır.
+
+$P(K)=0.35$
+
+$P(M)=0.40$
+
+$P(K\cap M)=0.12$
+
+$0.12\neq (0.35)(0.40)$ olduğundan K ve M olayları **bağımsız değildir.**
+
+]
+
+.pull-right[
+
+Her iki dersten de başarısız olma olasılığı;
+
+$=1-P(\text{en az birinden başarılı})$
+
+$=1-P(K\cup M)=1-[P(K)+P(M)-P(K\cap M)]$
+
+$=1-[0.35+0.40-0.12]$
+
+$=1-0.63=0.37$
+
+]
+
+---
+
+🔆 Bir veteriner kliniğinde bir yavru kedi ve bir yavru köpek kendilerini sahiplenecek aile beklemektedirler. Kedinin bir aile tarafından sahiplenilme olasılığı 0.85 iken köpeğinki 0.88 dir. Aynı hafta içinde her ikisinin birer yuva bulma olasılığı nedir?
+
+<br>
+
+**A:** Kedinin sahiplenilme olayı
+
+**B:** Köpeğin sahiplenilme olayı
+
+<br>
+
+$P(A\cap B)=P(A)P(B)$
+
+$=(0.85)(0.88)$
+
+$=0.748$
+
+<br>
+
+.saltinline[**Kedinin yuva bulması köpeğin yuva bulmasını etkilemeyeceğinden olaylar bağımsızdır.**]
+
+---
+
+####.salt[Toplam Olasılık Formülü]
+
+Birleşimleri örnek uzayı veren $A_{1},A_{2},...,A_{n}$ biçiminde n tane ayrık olayımız olsun. Bu durumda bu olaylar
+
+  - $i\neq j$ olmak üzere $A_{i}\cap A_{j}=\emptyset$
+  
+  - $S= \bigcup_{i=1}^{n}A_{i}$
+  
+koşullarını sağlar. B bu örnek uzaydaki herhangi bir olay olsun. $(B\subset S)$.
+
+<br>
+
+Bu durumda,
+
+$B=(B\cap A_{1})\cup (B\cap A_{2})\cup ...\cup (B\cap A_{n})=\bigcup_{i=1}^{n}(B\cap A_{i})$
+
+biçiminde yazılabilir. Burada $(B\cap A_{i})$, $i=1,...,n$ **ayrık olaylardır.**
+
+<br>
+
+$P(B)=P(B\cap A_{1})+P(B\cap A_{2})+ ...+P(B\cap A_{n})=\sum_{i=1}^{n}P(B\cap A_{i})$
+
+olur.
+
+---
+🔆 Bir fabrikada kullanılan 3 farklı makine ile eşit miktarda ürün üretilmektedir. 1. makine ile üretilen ürünlerin 0.02'si bozuk, 2. makine ile üretilenlerin 0.05'i bozuk ve 3. makiene ile üretilenlerin 0.07'si bozuktur. Üretilen ürünlerden rastgele seçilen bir ürünün bozuk olma olasılığı nedir?
+
+<br>
+
+.pull-left[
+
+$B=\{\text{Seçilen ürünün bozuk olması}\}$
+
+$A_{1}=\{\text{Ürünün 1. makinede üretilmesi}\}$
+
+]
+
+.pull-right[
+
+$A_{2}=\{\text{Ürünün 2. makinede üretilmesi}\}$
+
+$A_{3}=\{\text{Ürünün 3. makinede üretilmesi}\}$
+
+]
+
+<br>
+
+$A_{1}, A_{2}$ ve $A_{3}$ kümeleri ayrık olup,
+
+$A_{1}\cap A_{2}=\emptyset$, $A_{1}\cap A_{3}=\emptyset$ ve $A_{2}\cap A_{3}=\emptyset$ olmaktadır.
+
+<br>
+
+Rastgele seçilen bir ürün bu üç makineden bir tarafından üretilmiştir, dolayısıyla,
+
+$B=(B\cap A_{1})\cup (B\cap A_{2}) \cup (B\cap A_{3})$
+
+$A_{i},i=1,2,3$ kümeleri ayrık olduğundan $B\cap A_{i},i=1,2,3$ kümeleri de ayrık olur.
+
+---
+
+🔆 Bir fabrikada kullanılan 3 farklı makine ile eşit miktarda ürün üretilmektedir. 1. makine ile üretilen ürünlerin 0.02'si bozuk, 2. makine ile üretilenlerin 0.05'i bozuk ve 3. makine ile üretilenlerin 0.07'si bozuktur. Üretilen ürünlerden rastgele seçilen bir ürünün bozuk olma olasılığı nedir? **(devam)**
+
+
+$B=(B\cap A_{1})\cup (B\cap A_{2}) \cup (B\cap A_{3})$
+
+rastgele seçilen ürünün bozuk olma olasılığı,
+
+$P(B)=P(B\cap A_{1})+P(B\cap A_{2})+P(B\cap A_{3})$
+
+Ayrıca, bu üç makine eşit miktarda ürün ürettiğinden üretilen herhangi bir ürünün $A_{1}$ veya $A_{2}$ veya $A_{3}$'de üretilmesi $P(A_{1})=P(A_{2})=P(A_{3})=1/3$ olur.
+
+
+Her makine için bozuk ürün oranlarını bildiğimizden koşullu olasılıklar hesaplanabilir.
+
+.pull-left[
+
+$P(B|A_{1})=0.02$
+
+$P(B|A_{2})=0.05$
+
+$P(B|A_{3})=0.07$
+
+]
+
+.pull-right[
+
+$P(B\cap A_{1})=P(A_{1})P(B|A_{1})=(1/3)(0.02)$
+
+$P(B\cap A_{2})=P(A_{2})P(B|A_{2})=(1/3)(0.05)$
+
+$P(B\cap A_{3})=P(A_{3})P(B|A_{3})=(1/3)(0.07)$
+
+]
+
+
+Böylece,
+
+$P(B)=(1/3)(0.02)+(1/3)(0.05)+(1/3)(0.07)=0.047$
+
+---
+🔆 Bir çocuğun önünde 4 tane kavanoz bulunmaktadır. Kavanozların ikisinde 3 siyah, 4 beyaz bilye, birinde 9 siyah, 5 beyaz ve bir diğerinde de 1 siyah 6 beyaz bilye bulunmaktadır. Çocuk rastgele seçtiği herhangi bir kavanozdan bir bilye çekecektir. Çocuğun çektiği bilyenin siyah olma olasılığı nedir?
+
+<br>
+
+.pull-left[
+
+$B_{1}=\{\text{Kavanozda 3 siyah, 4 beyaz bilye olması}\}$
+
+$B_{2}=\{\text{Kavanozda 9 siyah, 5 beyaz bilye olması}\}$
+
+$B_{3}=\{\text{Kavanozda 1 siyah, 6 beyaz bilye olması}\}$
+
+$A=\{\text{Kavanozdan siyah bilye çekilmesi}\}$
+
+]
+
+.pull-right[
+
+Burada $B_{1}, B_{2}$ ve $B_{3}$ ayrık olaylardır.
+
+]
+
+<br>
+
+.pull-left[
+
+$P(B_{1})=2/4$ (3S, 4B olan 2 kavanoz)
+
+$P(B_{2})=1/4$ (3S, 5B olan 1 kavanoz)
+
+$P(B_{3})=1/4$ (1S, 6B olan 1 kavanoz)
+
+]
+
+.pull-right[
+
+$P(A|B_{1})=3/7$
+
+$P(A|B_{2})=9/14$
+
+$P(A|B_{3})=1/7$
+
+]
+
+---
+🔆 Bir çocuğun önünde 4 tane kavanoz bulunmaktadır. Kavanozların ikisinde 3 siyah, 4 beyaz bilye, birinde 9 siyah, 5 beyaz ve bir diğerinde de 1 siyah 6 beyaz bilye bulunmaktadır. Çocuk rastgele seçtiği herhangi bir kavanozdan bir bilye çekecektir. Çocuğun çektiği bilyenin siyah olma olasılığı nedir? **(devam)**
+
+.pull-left[
+
+$P(B_{1})=2/4$ (3S, 4B olan 2 kavanoz)
+
+$P(B_{2})=1/4$ (3S, 5B olan 1 kavanoz)
+
+$P(B_{3})=1/4$ (1S, 6B olan 1 kavanoz)
+
+]
+
+.pull-right[
+
+$P(A|B_{1})=3/7$
+
+$P(A|B_{2})=9/14$
+
+$P(A|B_{3})=1/7$
+
+]
+
+<br>
+
+$P(A)=\sum_{i=1}^{3}P(A|B_{i})P(B_{i})=P(A|B_{1})P(B_{1})+P(A|B_{2})P(B_{2})+P(A|B_{3})P(B_{3})$
+
+<br>
+
+
+$P(A)=(1/7)(2/4)+(9/14)(1/4)+(1/7)(1/4)=15/56$
+
+---
+
+####.salt[🚀 Bayes Teoremi]
+
+<br>
+
+$A_{i}$, $i=1,...,n$ ayrık olaylar olmak üzere $S=\bigcup_{i=1}^{n}A_{i}$ olsun. S örnek uzayındaki herhangi bir B olayı için $P(B)\neq0$ olmak üzere $P(A_{i}|B)$, $i=1,...,n$ koşullu olasılığı;
+
+<br>
+
+$\Large P(A_{i}|B)=\frac{P(A_{i}\cap B)}{P(B)}=\frac{P(A_{i})P(B|A_{i})}{\sum_{i=1}^{n}P(A_{i})P(B\cap A_{i})}$, $i=1,...,n$
+
+<br>
+
+Bayes formülü, toplam olasılık formülünü içermektedir.
+
+<br>
+
+------
+
+[Thomas Bayes](https://tr.wikipedia.org/wiki/Thomas_Bayes)
+
+---
+
+🔆 A kutusundan 1'den 9'a kadar, B kutusunda ise 1'den 5'e kadar numaralanmış kartlar vardır. Kutulardan biri rastgele seçilmiş ve içinden rastgele bir kart seçilmiştir. Kartın numarası çift ise bu kartın A kutusundan çekilmiş olması olasılığı nedir?
+
+<br>
+
+.pull-left[
+
+$Ç=\{\text{Çekilen kart çift sayıdır}\}$
+
+$A=\{\text{A kutusu seçildi}\}$
+
+$B=\{\text{B kutusu seçildi}\}$
+
+]
+
+.pull-right[
+
+$\large P(A|Ç)=\frac{P(A)P(Ç|A)}{P(A)P(Ç|A)+P(B)P(Ç|B)}$
+
+]
+
+<br>
+
+.pull-left[
+
+$P(A)=\frac{1}{2}$
+
+$P(B)=\frac{1}{2}$
+
+$P(Ç|A)=\frac{4}{9}$
+
+$P(Ç|B)=\frac{2}{5}$
+
+]
+
+.pull-right[
+
+$\large P(A|Ç)=\frac{\frac{1}{2}\frac{4}{9}}{\frac{1}{2}\frac{4}{9}+\frac{1}{2}\frac{2}{5}}=0.53$
+
+]
+
+---
+
+🔆 2012'deki başkanlık seçiminde Ohio eyaletinin sandık çıkış anketleri aşağıdaki sonuçları vermiştir.
+
+<br>
+
+| | Obama | Romney|
+|:---|:--:|:--:|
+|Üniversite mezunu olmayan (%60)|%52|%47|
+|Üniversite mezunu (%40)|%47|%50|
+
+Rastgele seçilmiş bir katılımcı Obama'ya oy vermişse üniversite mezunu olma olasılığı nedir?
+
+<br>
+
+$O=\{\text{Obama'ya oy verenler}\}$
+
+$Ü=\{\text{Üniversite mezunu olanlar}\}$ 
+
+$Ü^{c}=\{\text{Üniversite mezunu olmayanlar}\}$. 
+
+
+<br>
+
+$P(Ü|O)=\frac{P(Ü\cap O)}{P(O)}=?$
+
+Obama'ya oy verenleri üniversite mezunu ve mezun olmayan olmak üzere iki gruba ayırabiliriz **(ayrık kümelerdir).**
+
+
+---
+<br>
+
+| | Obama | Romney|
+|:---|:--:|:--:|
+|Üniversite mezunu olmayan (%60)|%52|%47|
+|Üniversite mezunu (%40)|%47|%50|
+
+
+Toplam olasılık formülü ile,
+
+<br>
+
+$P(O)=P(Ü\cap O)+P(Ü^{c}\cap O)$
+
+$P(O)=P(O|Ü)P(Ü)+P(O|Ü^{c})P(Ü^{c})$
+
+$\large P(O)=\frac{47}{100}\frac{40}{100}+\frac{52}{100}\frac{60}{100}=\frac{50}{100}=\frac{1}{2}$
+
+<br>
+
+$P(O):$ Ankete katılanlardan rastgele seçilen birinin Obama'ya oy verme olasılığıdır.
+
+
+$\large P(Ü|O)=\frac{P(Ü\cap O)}{P(O)}=\frac{P(O|Ü)P(Ü)}{P(O)}=\frac{\frac{47}{100}\frac{40}{100}}{\frac{50}{100}}=0.376$
+
+---
+
+🔆 Bir hastalığın teşhisinde kullanılan test ile ilgili şu bilgilere sahibiz; Testin doğru bir biçimde hasta olan bir kişiyi pozitif (yani hasta) olarak tanımlama olasılığı %99'dur. Testin doğru bir biçimde hasta olmayan bir kişiyi negatif (yani hasta değil) olarak tanımlama olasılığı %95'tir. Genel popülasyonda bu hastalığın görülme oranı 0.0001'dir. Bu durumda testinin sonucu pozitif olan bir kişinin gerçekten hasta olma olasılığı nedir?
+
+<br>
+
+$\large P(\text{Hasta olma}|\text{Test pozitif})=\frac{P(\text{Hasta olma}\cap \text{Test pozitif})}{P(\text{Test pozitif})}=?$
+
+<br>
+
+$H=\{\text{Hasta olma}\}$
+
+$H^{c}=\{\text{Hasta olmayanlar}\}$
+
+$T=\{\text{Testi pozitif}\}$
+
+$T^{c}=\{\text{Testi negatif}\}$
+
+<br>
+
+$\large P(H|T)=\frac{P(H\cap T)}{P(T)}=\frac{P(T|H)P(H)}{P(T|H)P(H)+P(T|H^{c})P(H^{c})}$
+
+---
+
+$P(T|H)=0.99$
+
+$P(T|H^{c})=1-0.95=0.05$
+
+$P(T^{c}|H^{c})=0.95$
+
+$P(H)=0.0001$
+
+$P(H^{c})=1-0.0001$
+
+<br>
+
+
+$\large P(H|T)=\frac{P(H\cap T)}{P(T)}=\frac{P(T|H)P(H)}{P(T|H)P(H)+P(T|H^{c})P(H^{c})}$
+
+<br>
+
+$\large \frac{(0.99)(0.0001)}{(0.99)(0.0001)+(0.05)(1-0.0001)}=0.00197$
+
+<br>
+
+Bu sonuca göre test pozitif sonuç verdiğinde kişinin hasta olma olasılığı yaklaşık binde 2'dir.
+
+---
+
+🔆 Bir fabrikadaki A, B ve C makinelerinin üretimdeki payları sırasıyla %50, %40 ve %10'dur. Bu makinelerin kusurlu üretim oranları ise sırasıyla %5, %7 ve %1'dir. Bu makinelerden üretilmiş bir ürün rastgele seçiliyor.
+
+**a)** Seçilen ürünün kusurlu olma olasılığını bulunuz.
+
+**b)** Kusurlu ürünün A veya C makinelerinde üretilmiş olma olasılığını bulunuz.
+
+<br>
+
+**a)** Toplam olasılık formülü ile,
+
+$P(K)=P(K\cap A)+P(K\cap B)+P(K\cap C)$
+
+$P(K)=P(K|A)P(A)+P(K|B)P(B)+P(K|C)P(C)$
+
+$\large P(K)=\frac{5}{100}\frac{50}{100}+\frac{7}{100}\frac{40}{100}+\frac{1}{100}\frac{10}{100}$
+
+$P(K)=0.054$
+
+---
+
+**b)** Kusurlu ürünün A makinesinde üretilmiş olma olasılığı,
+
+$\large P(A|K)=\frac{P(A\cap K)}{P(K)}=\frac{P(K|A)P(A)}{P(K)}$
+
+$\large P(A|K)=\frac{\frac{5}{100}\frac{50}{100}}{0.054}=0.463$
+
+<br>
+
+Kusurlu ürünün C makinesinde üretilmiş olma olasılığı,
+
+$\large P(C|K)=\frac{P(K|C)P(C)}{P(K)}=\frac{10/10000}{0.054}=0.0185$
+
+<br>
+
+Kusurlu ürünün A veya C makinesinde üretilmiş olma olasılığı,
+
+$P(A|K)+P(C|K)=0.463+0.0185=0.4815$
+
+---
+
+🔆 Ali, Ayşe, Fatma ve Veli isimli işçiler fabrikada her gün üretilen ürünlerin sırasıyla %40, %30, %20 ve %10'unu paketleyebilmektedir. Bu kişilerin sırasıyla %3, %4, %5 ve %6 oranında bozuk paketleme yaptıkları görülmüştür. 
+
+**a)** Rastgele seçilen bir kişinin bozuk paketleme yapma olasılığını nedir?
+
+**b)** Rastgele seçilen bir paketin bozuk paketlendiği görülmüş bu paketlemeyi yapan kişinin Veli olma olasılığı nedir?
+
+<br>
+
+.pull-left[
+
+$X=\{\text{Bozuk paketleme yapılması}\}$
+
+$A_{1}=\{\text{Ürünü Ali paketlemiştir}\}$
+
+$A_{2}=\{\text{Ürünü Ayşe paketlemiştir}\}$
+
+]
+
+.pull-right[
+
+$A_{3}=\{\text{Ürünü Fatma paketlemiştir}\}$
+
+$A_{4}=\{\text{Ürünü Veli paketlemiştir}\}$
+
+]
+
+<br>
+
+**a)** Rastgele seçilen bir kişinin bozuk paketleme yapma olasılığı
+
+$P(X)=P(X\cap A_{1})+P(X\cap A_{2})+P(X\cap A_{3})+P(X\cap A_{4})$
+
+$P(X)=P(A_{1})P(X|A_{1})+P(A_{2})P(X|A_{2})+P(A_{3})P(X|A_{3})+P(A_{4})P(X|A_{4})$
+
+$P(X)=(0.03)(0.40)+(0.04)(0.30)+(0.05)(0.20)+(0.06)(0.10)=0.04$
+
+---
+
+**b)** Rastgele seçilen bir paketin bozuk paketlendiği görülmüş bu paketlemeyi yapan kişinin Veli olma olasılığı
+
+$\large P(A_{4}|X)=\frac{P(A_{4}\cap X)}{P(X)}=\frac{P(A_{4})P(X|A_{4})}{P(X)}=\frac{(0.06)(0.10)}{0.04}=0.15$
+
+
+<br>
+
+--
+
+🔆 Siz tatile gittiğinizde komşunuzun bitkinizi sulayıp sulamayacağını soruyorsunuz. Sulanmadığı taktirde bitkinin ölme olasılığı 0.8, sulandığı taktirde ölme olasılığı ise 0.15'tir. Siz ise komşunuzun bitkinizi sulamayı hatırlayacağından %90 eminsiniz. 
+
+**a)** Döndüğünüzde bitkiyi canlı bulma olasılığınız nedir? (Yanıt: 785/1000)
+
+**b)** Bitkiyi ölü bulmanız durumunda, komşunuzun bitkiyi sulamayı unutmuş olma olasılığı nedir? (Yanıt: 16/43)
+
+<br>
+
+🔆 Anakart üreten 2 fabrika var. A fabrikasında üretilen her bir ürünün arızalı olma olasılığı 0.05, B fabrikasında üretilen ürünün arızalı olma olasılığı 0.01 dir. A veya B fabrikalarının herhangi birinden 2 anakart alınıyor. Bunlardan birincisinin arızalı olduğu saptanıyor. İkincisinin de arızalı olma olasılığını bulunuz. (Yanıt: 13/300)
+
+---
+
+🔆 Erkeklerde prostat kanseri teşhisi için PSA protein düzeyi bir test ile ölçülmektedir. Kanserli olmayan bir erkeğin yüksek PSA düzeyine sahip olma olasılığı 0.135'dir ve kanserli olma durumunda bu olasılık 0.268'e yükselir. Diğer etmenlere de dayanarak bir hekim hastanın prostat kanseri olduğundan %70 emindir. 
+
+**a)** Hastanın kanserli olması durumunda test sonucunda yüksek PSA düzeyine sahip olması olasılığını bulunuz. (Yanıt: 0.1876/0.2281=0.822)
+
+
+**b)** Hastanın kanserli olması durumunda test sonucunda yüksek PSA düzeyine sahip olmaması olasılığını bulunuz. (Yanıt: 0.5124/0.7719=0.6638)
