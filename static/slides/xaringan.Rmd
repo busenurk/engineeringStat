@@ -2626,7 +2626,7 @@ $A_{i}$, $i=1,...,n$ ayrık olaylar olmak üzere $S=\bigcup_{i=1}^{n}A_{i}$ olsu
 
 <br>
 
-$\Large P(A_{i}|B)=\frac{P(A_{i}\cap B)}{P(B)}=\frac{P(A_{i})P(B|A_{i})}{\sum_{i=1}^{n}P(A_{i})P(B\cap A_{i})}$, $i=1,...,n$
+$\Large P(A_{i}|B)=\frac{P(A_{i}\cap B)}{P(B)}=\frac{P(A_{i})P(B|A_{i})}{\sum_{i=1}^{n}P(A_{i})P(B|A_{i})}$, $i=1,...,n$
 
 <br>
 
