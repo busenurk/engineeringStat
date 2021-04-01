@@ -2464,7 +2464,7 @@ $P(B)=P(B\cap A_{1})+P(B\cap A_{2})+ ...+P(B\cap A_{n})=\sum_{i=1}^{n}P(B\cap A_
 olur.
 
 ---
-🔆 Bir fabrikada kullanılan 3 farklı makine ile eşit miktarda ürün üretilmektedir. 1. makine ile üretilen ürünlerin 0.02'si bozuk, 2. makine ile üretilenlerin 0.05'i bozuk ve 3. makiene ile üretilenlerin 0.07'si bozuktur. Üretilen ürünlerden rastgele seçilen bir ürünün bozuk olma olasılığı nedir?
+🔆 Bir fabrikada kullanılan 3 farklı makine ile eşit miktarda ürün üretilmektedir. 1. makine ile üretilen ürünlerin 0.02'si bozuk, 2. makine ile üretilenlerin 0.05'i bozuk ve 3. makine ile üretilenlerin 0.07'si bozuktur. Üretilen ürünlerden rastgele seçilen bir ürünün bozuk olma olasılığı nedir?
 
 <br>
 
@@ -2568,7 +2568,7 @@ Burada $B_{1}, B_{2}$ ve $B_{3}$ ayrık olaylardır.
 
 $P(B_{1})=2/4$ (3S, 4B olan 2 kavanoz)
 
-$P(B_{2})=1/4$ (3S, 5B olan 1 kavanoz)
+$P(B_{2})=1/4$ (9S, 5B olan 1 kavanoz)
 
 $P(B_{3})=1/4$ (1S, 6B olan 1 kavanoz)
 
@@ -2614,7 +2614,7 @@ $P(A)=\sum_{i=1}^{3}P(A|B_{i})P(B_{i})=P(A|B_{1})P(B_{1})+P(A|B_{2})P(B_{2})+P(A
 <br>
 
 
-$P(A)=(1/7)(2/4)+(9/14)(1/4)+(1/7)(1/4)=15/56$
+$P(A)=(3/7)(2/4)+(9/14)(1/4)+(1/7)(1/4)=15/56$
 
 ---
 
