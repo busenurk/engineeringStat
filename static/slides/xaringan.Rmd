@@ -98,6 +98,10 @@ class: left,middle
 
 ### 📘 Olasılık ve İstatistik | Semra Oral Erbaş
 
+### 📝 Prof. Dr. Müjgan Tez Ders Notları
+
+### 📝 Doç. Dr. Fatih Kızılaslan Ders Notları
+
 ---
 
 # Ders İçeriği  🚀
@@ -2885,7 +2889,426 @@ $\large P(A_{4}|X)=\frac{P(A_{4}\cap X)}{P(X)}=\frac{P(A_{4})P(X|A_{4})}{P(X)}=\
 
 🔆 Erkeklerde prostat kanseri teşhisi için PSA protein düzeyi bir test ile ölçülmektedir. Kanserli olmayan bir erkeğin yüksek PSA düzeyine sahip olma olasılığı 0.135'dir ve kanserli olma durumunda bu olasılık 0.268'e yükselir. Diğer etmenlere de dayanarak bir hekim hastanın prostat kanseri olduğundan %70 emindir. 
 
-**a)** Hastanın kanserli olması durumunda test sonucunda yüksek PSA düzeyine sahip olması olasılığını bulunuz. (Yanıt: 0.1876/0.2281=0.822)
+**a)** Hastanın test sonucunda yüksek PSA düzeyine sahip olması durumunda kanser olması olasılığını bulunuz. (Yanıt: 0.1876/0.2281=0.822)
 
 
-**b)** Hastanın kanserli olması durumunda test sonucunda yüksek PSA düzeyine sahip olmaması olasılığını bulunuz. (Yanıt: 0.5124/0.7719=0.6638)
+**b)** Hastanın test sonucunda yüksek PSA düzeyine sahip olmaması durumunda kanser olması olasılığını bulunuz. (Yanıt: 0.5124/0.7719=0.6638)
+
+
+---
+
+####.salt[Rastgele Değişkenler ve Olasılık Dağılımları]
+
+.saltinline[**Rastgele Değişken:**] Değeri bir deney sonucunda belirlenen değişkene (fonksiyona) rastgele değişken denir.
+
+Örneklem uzayındaki her bir elemanla bir gerçel sayıyı ilişkilendiren fonksiyondur.
+
+
+```{r echo=FALSE , out.width = '40%', fig.align='center',fig.cap=""}  
+knitr::include_graphics("img/datatypes.png") 
+```
+
+**Rastgele değişken X, Y, Z,... gibi büyük harfle, aldığı değerler x,y,z,... küçük harfle gösterilir.**
+
+Üç rastgele değişken tanımlansın,
+
+A, bir sonraki istatistik dersinde uyuyacak öğrencilerin sayısı (_kesikli_)
+
+B, bir sonraki ay satın alacağınız kitap sayısı (_kesikli_)
+
+C, Refik Anadol sergisi için girdiğiniz kuyrukta içeri girene kadar geçen süre (_sürekli_)
+
+---
+
+####.salt[Kesikli rastgele değişken] 
+
+<br>
+
+X rastgele değişkeni sonlu ya da sayılabilir sonsuzluktaki değerleri alıyorsa **kesikli rastgele değişken** adını alır. 
+
+<br>
+
+-   $P(X=x)=P(x) \geq 0$
+
+-   $\sum_{x} P(X=x)=1$
+
+$P(X)$'e X'in **olasılık fonksiyonu** adı verilir.
+
+<br>
+
+🥕 Bir paranın n defa atılmasında gelen yazıların sayısı
+
+
+🥕 Bir hastaneye bir saat içinde gelen hastaların sayısı
+
+🥕 Bir otoparka bir günde gelen araçların sayısı
+
+🥕 Kasa sırasında bekleyen müşteri sayısı
+
+---
+
+####.heat[Sürekli rastgele değişken] 
+
+<br>
+
+X rastgele değişkeni belli bir aralıkta verilmiş sonsuz sayıdaki değeri alabiliyorsa **sürekli rastgele değişken** adını alır. 
+
+<br>
+
+-   $f(x) \geq 0$ tüm x değerleri için
+
+-   $\int_{-\infty}^{\infty}f(x)dx=1$
+
+-   $P(a \leq X \leq b)= \int_{a}^{b}f(x)dx$
+
+$f(x)$'e X'in **olasılık yoğunluk fonksiyonu** adı verilir.
+
+<br>
+
+🥕 Bir klinikte tedavi gören hastaların ağırlıkları 
+
+🥕 Bir çocuk tiyatrosunda rastgele seçilen çocukların yaşları
+
+
+---
+
+####.salt[Olasılık Fonksiyonu]
+
+Kesikli bir rastgele değişkenin aldığı değerler ile karşılık gelen olasılıkların birlikte sunulduğu tablo ya da fonksiyona **kesikli olasılık dağılımı (olasılık fonksiyonu)** denir.
+
+
+🥕 Hilesiz bir zar yuvarlama deneyinde, zarın üzerindeki noktalar sayısı X r.d. olsun. X'in kesikli olasılık dağılımı;
+
+.pull-left[
+
+<br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+df<-rbind(c("X",1,2,3,4,5,6,"$\\sum$"),c("$P(X=x)=f(x)$","1/6","1/6","1/6","1/6","1/6","1/6",1))
+
+library(kableExtra)
+df %>%
+  kable() %>%
+  kable_styling(position="center")
+```
+
+<br>
+
+ya da 
+
+$\Large f(x)=\frac{1}{6}$; $x=1,2,3,4,5,6$
+
+]
+
+.pull-right[
+
+```{r echo=FALSE,fig.width=6, fig.height=5}
+a1=1:6
+a2=rep(1/6,6)
+plot(a1,a2, xlab="x",ylab="f(x)",pch=19,)
+title("Dağılım Grafiği")
+```
+
+]
+
+---
+
+🥕 Bir perakende satış yapan mağazaya, toptancı tarafından 3 tanesinin defolu olduğu bilinen birbirine benzer 20 adet dizüstü bilgisayar gönderilmiştir. Bir okul bu mağazadaki bilgisayarladan rastgele iki tanesini satın almak isterse, alacağı bilgisayarlar içerisindeki defoluların sayısının olasılık dağılımını bulunuz.
+
+<br>
+
+X r.d. bilgisayarların defolu sayısı olsun.
+
+$X=0 (\text{hepsi sağlam}), 1 (\text{bir defolu}), 2 (\text{iki defolu})$ 
+
+.pull-left[
+
+$\Large P(X=0)=\frac{\binom{3}{0}\binom{17}{2}}{\binom{20}{2}}=\frac{136}{190}$
+
+$\Large P(X=1)=\frac{{3\choose 1}{17 \choose 1}}{20 \choose 2}=\frac{51}{190}$
+
+$\Large P(X=2)=\frac{{3\choose 2}{17 \choose 0}}{20 \choose 2}=\frac{3}{190}$
+
+]
+
+.pull-right[
+
+**Kesikli olasılık dağılımı**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+df2<-rbind(c("$X=x$",0,1,2,"$\\sum$"),c("$P(X=x)=f(x)$","136/190","51/190","3/190",1))
+
+library(kableExtra)
+df2 %>%
+  kable() %>%
+  kable_styling()
+```
+
+]
+
+---
+
+
+🥕 Bir madeni para 3 kez fırlatılsın. X rastgele değişkeni 3 atışta gelen tura sayısı olsun.
+
+X=0, 1, 2, 3   
+
+<br>
+
+.pull-left[
+
+$S=\{YYY,YTY,TTY,TTT,TYY,YYT,TYT,YTT\}$
+
+
+$\large P(X=0)=\frac{1}{8}$
+
+$\large P(X=1)=\frac{3}{8}$
+
+$\large P(X=2)=\frac{3}{8}$
+
+$\large P(X=3)=\frac{1}{8}$
+
+]
+
+.pull-right[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+df2<-rbind(c("$X=x$",0,1,2,3,"$\\sum$"),c("$P(X=x)=f(x)$","1/8","3/8","3/8","1/8",1))
+
+library(kableExtra)
+df2 %>%
+  kable() %>%
+  kable_styling()
+```
+
+]
+
+<br>
+
+**Olasılık fonksiyonu olabilmesi için gereken şartlar kontrol edilmelidir.**
+
+.pull-left[
+
+🍎 $\large P(X=x)=P(x)\geq 0$ 
+
+]
+
+.pull-right[
+
+🍎 $\large \sum_{x} P(X=x)=1$ 
+
+]
+
+---
+
+🥕 $$f(x)=P(X)= \Bigg \{ \begin{array}{ll} cx^{2} &, x=1, 2, 3 \\ 0 &, \text{diğer durumlarda} \end{array}$$
+fonksiyonu verilmiştir. 
+
+  **a)** Fonksiyonun olasılık fonksiyonu olabilmesi için c kaç olmalıdır?
+  
+  **b)** $P(X>2)$ nedir?
+  
+<br>
+  
+  **a)** Olasılık fonksiyonu olabilmesi için,
+
+$\sum P(X)=1$ $\Rightarrow$ $c+4c+9c=1$ buradan $\large c=\frac{1}{14}$ elde edilir.
+
+<br>
+
+  **b)** $\large P(X>2)=P(X=3)=\frac{9}{14}$
+
+---
+
+####.salt[Birikimli Dağılım Fonksiyonu]
+
+X rastgele değişkeni $F(x)=P(X\leq x)$ şeklinde tanımlanabiliyorsa $F(x)$'e, X rastgele değişkeninin **birikimli olasılık fonksiyonu** veya **dağılım fonksiyonu** adı verilir.
+
+Burada $F(x)$, X rastgele değişkeninin x'e eşit veya daha küçük değerler alma olasılığını ifade eder.
+
+$$\large F(x)=P(X \leq x)=\sum_{t\leq x} P(t), -\infty<x<\infty$$
+olur. Burada $P(x)$ olasılık fonksiyonudur.
+
+-   $F(x)$, x'in azalmayan bir fonksiyonudur.
+
+-   $\lim_{x\to\infty}F(x)=F(\infty)=1$
+
+-   $\lim_{x\to-\infty}F(x)=F(-\infty)=0$
+
+X rastgele değişkenine ilişkin tüm olasılıklar birikimli olasılık fonksiyonu kullanılarak kolayca elde edilir.
+
+$x_{1}\leq x_{2}$ olmak üzere $P(x_{1}\leq x \leq x_{2})=F(x_{2})-F(x_{1})$ dir.
+
+---
+
+🥕 X kesikli rastgele değişkeni aşağıdaki olasılık dağılımına sahiptir.
+
+$P(X=0)=0.12$
+
+$P(X=1)=0.28$
+
+$P(X=2)=0.60$
+
+Bu rastgele değişkenin dağılım fonksiyonunu (birikimli olasılık fonksiyonunu) elde ediniz, grafiğini çiziniz.
+
+.pull-left[
+
+$$\Large F(x)= \Bigg \{ \begin{array}{llll} 0 &, x<0 \\ 0.12 &, 0 \leq x<1 \\ 0.40 &, 1 \leq x <2 \\ 1 &, 2 \leq x \end{array}$$
+
+]
+
+.pull-right[
+
+![](img/cumdisc.jpg){width="100"}
+]
+
+---
+
+🥕 X kesikli r.d. olasılık fonksiyonu,
+
+.pull-left[
+
+$\large F(x)= \Bigg \{ \begin{array}{ll} \frac{1}{55}x &, x=1,2,...,10 \\ 0 &, d.d. \end{array}$
+
+olarak verilmiştir. 
+
+]
+
+.pull-right[
+
+  **a)** X'in dağılım fonksiyonunu bulunuz.
+  
+  **b)** Dağılım fonk.dan yararlanarak $P(X\leq 3)$, $P(X>2)$ ve $P(2\leq X \leq4)$ olasılıklarını hesaplayınız.
+
+]
+
+<br>
+  
+$\large F(x)=\sum_{t=1}^{x}P(t)=\sum_{t=1}^{x}\frac{1}{55}t=\frac{1}{55}\frac{x(x+1)}{2}=\frac{x(x+1)}{110}$
+
+
+$\large F(x)= \Bigg \{ \begin{array}{lll}0 &, x<1 \\ \frac{x(x+1)}{110} &, x=1,2,...,10 \\ 1 &, x \geq 10 \end{array}$
+
+$\large P(X\leq 3)=F(3)=\frac{12}{110}=\frac{6}{55}$
+
+$\large P(X>2)=1-P(X\leq 2)=1-\frac{6}{110}=\frac{52}{55}$
+
+$\large P(2\leq X \leq 4)=F(4)-F(1)=\frac{4(5)}{110}\frac{1(2)}{110}=\frac{18}{110}=\frac{9}{55}$
+
+---
+
+####.salt[Beklenen Değer]
+
+Beklenen değer kavramı şans oyunlarından doğmuştur. En basit hali ile beklenen değer, bir oyuncunun kazanabileceği miktar ile kazanma olasılığının çarpımıdır. 
+
+Örneğin, büyük ödülün 5000 TL olduğu bir çekilişte 10.000 biletten birine ilişkin matematiksel beklenti $\large 5000(\frac{1}{10000})=0.50$ TL olur. Bu tutar bir ortalama olup bilet başına ortalama ödül 0.50 TL olarak yorumlanabilir.
+
+<br>
+
+Değişkenlerin gösterdikleri dağılımlar bir olasılık fonksiyonu ile gösterildiğinden bu fonksiyonun beklenen değeri, **dağılımın ortalaması** olarak da ifade edilmektedir. 
+
+<br>
+
+Beklenen değer, dağılımlara ilişkin bir parametredir.
+
+<br>
+
+Beklenen değer, değişken kesikli ise toplam, sürekli ise integral alınarak bulunur.
+
+
+---
+
+####.salt[Kesikli Rastgele Değişkenin Beklenen Değeri]
+
+X kesikli rastgele değişkeninin beklenen değeri,
+
+$$\large E(X)=\sum_{\forall x}xP(x)$$
+olarak tanımlanır.
+
+<br>
+
+🥕 Hilesiz bir zar atılıyor. Üst yüze gelen sayıların beklenen değeri nedir?
+
+$\large E(X)=\mu_{x}=1(\frac{1}{6})+2(\frac{1}{6})+...+6(\frac{1}{6})=3.5$
+
+<br>
+
+🥕 Hilesiz bir zar atılıyor. Üste gelen sayı bir asal sayı olursa o sayı kadar kazanacak aksi durumda üst yüze gelen sayı kadar TL kaybedecektir. Bu oyunun beklenen değeri nedir?
+
+$\large E(X)=\mu_{x}=2(\frac{1}{6})+3(\frac{1}{6})+5(\frac{1}{6})-1(\frac{1}{6})-4(\frac{1}{6})-6(\frac{1}{6})=-\frac{1}{6}$
+
+Sonuç negatif olduğundan oyuncunun zarar etmesi beklenir.
+
+---
+
+####.salt[Beklenen Değerin Özellikleri]
+
+X ve Y r.d ve c bir sabit olmak üzere
+
+$E(c)=c$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####.heat[Sürekli Olasılık Dağılımları]
+
+X sürekli r.d. nin olasılık dağılımı $f(x)$ için;
+
+1. $f(x) \geq 0, \forall x$
+
+2. $\int_{-\infty}^{+\infty}f(x)dx=1$
+
+3. $P(a<x<b)=\int_{a}^{b}f(x)dx$
+
+koşulları sağlanıyorsa X'in olasılık yoğunluk fonksiyonu $f(x)$'dir.
+
+🥕 Kontrollü bir lab. deneyinde derece cinsinden ölçülen tepkime ısısındaki hatanın olasılık yoğunluk fonksiyonu,
+
+
+$$f(x)=P(X \leq x)= \Bigg \{ \begin{array}{rr} \frac{x^{2}}{3} &, -1<x< 2 \\ 0 &, \text{diğer yerlerde} \end{array}$$
+olan sürekli X r.d. olduğunu varsayalım.
+
+a) $f(x)$'in olasılık yoğunluk fonksiyonu olduğunu gösteriniz.
+
+b) $P(0<X \leq)$, $P(X=\frac{3}{2})$ olasılıklarını bulunuz.
+
+---
+
+
